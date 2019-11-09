@@ -25,4 +25,10 @@ router.get('/single-course',function(req,res,next){
 router.get('/instructor',function(req,res,next){
   res.render('instructor')
 })
+router.get('/login',function(req,res,next){
+  res.render('./login/index')
+})
+router.get('/register',function(req,res,next){
+  res.render('./register/index')
+})
 module.exports = router;
