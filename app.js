@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var exphbs  = require('express-handlebars');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/admin');
-
+require('./confic/connection')
 var app = express();
 
 // view engine setup
