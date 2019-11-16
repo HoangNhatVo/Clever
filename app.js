@@ -10,6 +10,14 @@ var usersRouter = require('./routes/admin');
 require('./config/connection')
 var app = express();
 
+var express_handlebars_sections = require('express-handlebars-sections');
+
+var Passport = require('passport');
+var flash = require('connect-flash');
+var localStrategy = require('passport-local').Strategy;
+var session = require('express-session');
+require('./MiddleWares/passport')(Passport);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs',exphbs({
@@ -17,16 +25,29 @@ app.engine('.hbs',exphbs({
   layoutsDir: path.join(__dirname,'views/layout'),
   partialsDir:path.join(__dirname,'views/partial'),
   extname:'.hbs',
+  helpers: {
+   section:express_handlebars_sections() 
+  }
 }));
 app.set('view engine', 'hbs');
 
 
 app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(session({secret: "mysecret", resave: true, saveUninitialized: true, 
+    cookie:{
+      maxAge: 1000*60*3
+    }}));
+app.use(Passport.initialize());
+app.use(Passport.session());
+app.use(flash());
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(require('./MiddleWares/auth_locals.mdw'));
 
 app.use('/', indexRouter);
 app.use('/admin', usersRouter);
