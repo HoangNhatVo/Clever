@@ -1,12 +1,24 @@
 var express = require('express');
 var router = express.Router();
+var indexModel = require('../proc/index.model');
 
 var passport = require('passport');
 var bCrypt = require('bcrypt');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index');
+router.get('/', async function(req, res, next) {
+  try {
+    var listCourse = await indexModel.allCourse(1)
+    var listSubject = await indexModel.allSubject()
+    res.render('index',
+    {
+      listCourse,
+      listSubject
+    });
+  } catch (error) {
+    console.log(error)
+  }
+
 });
 
 router.get('/blog', function(req, res, next) {
@@ -19,8 +31,17 @@ router.get('/contact', function(req,res, next){
 router.get('/blog-detail', function(req,res,next){
   res.render('blog-detail')
 })
-router.get('/courses',function(req,res,next){
-  res.render('courses')
+router.get('/courses',async function(req,res,next){
+  try {
+    var listCourse = await indexModel.allCourse(1)
+    console.log(listCourse)
+    res.render('courses',
+    {
+      listCourse
+    });
+  } catch (error) {
+    console.log(error)
+  }
 })
 router.get('/single-course',function(req,res,next){
   res.render('single-course')
@@ -34,7 +55,7 @@ router.get('/login',function(req,res,next){
   if(!req.isAuthenticated() || req.user == true){
     req.logout();
     req.session.cookie.expires = false;
-    res.render('./login/index',{message: req.flash('loginMessage')})
+    res.render('./login',{message: req.flash('loginMessage')})
   }
   else{
     res.redirect('/');
@@ -60,7 +81,7 @@ router.post('/login', passport.authenticate('local-login', {
 // Đăng kí
 router.get('/register',function(req,res,next){
   if(!req.isAuthenticated()){
-    res.render('./register/index',{message: req.flash('registerMessage')})
+    res.render('./register',{message: req.flash('registerMessage')})
   }
   else{
     res.redirect('/');
