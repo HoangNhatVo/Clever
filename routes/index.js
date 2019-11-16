@@ -66,6 +66,7 @@ router.get('/register',function(req,res,next){
     res.redirect('/');
   }
 })
+
 //router dang ky
 router.post('/register', passport.authenticate('local-signup', {
   failureRedirect: '/register',
