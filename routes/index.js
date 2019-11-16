@@ -1,9 +1,16 @@
 var express = require('express');
 var router = express.Router();
-
+var indexModel = require('../proc/index.model');
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index');
+router.get('/', async function(req, res, next) {
+  try {
+    var listCourse = indexModel.allCourse(10,0)
+    console.log(listCourse)
+    res.render('index');
+  } catch (error) {
+    console.log(error)
+  }
+
 });
 
 router.get('/blog', function(req, res, next) {
