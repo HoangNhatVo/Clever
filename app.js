@@ -6,7 +6,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var exphbs  = require('express-handlebars');
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/admin');
+var adminRouter = require('./routes/admin');
 require('./config/connection')
 var app = express();
 
@@ -50,7 +50,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('./MiddleWares/auth_locals.mdw'));
 
 app.use('/', indexRouter);
-app.use('/admin', usersRouter);
+app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
