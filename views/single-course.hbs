@@ -7,7 +7,7 @@
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Courses</a></li>
                 <li class="breadcrumb-item"><a href="#">Art &amp; Design</a></li>
-                <li class="breadcrumb-item active" aria-current="page">English Grammer</li>
+                <li class="breadcrumb-item active" aria-current="page">{{course_subject}}</li>
             </ol>
         </nav>
     </div>
@@ -25,13 +25,13 @@
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star-o" aria-hidden="true"></i>
             </div>
-            <h3>English Grammar</h3>
+            <h3>{{course_subject}}</h3>
             <div class="meta d-flex align-items-center justify-content-center">
                 <a href="#">Sarah Parker</a>
                 <span><i class="fa fa-circle" aria-hidden="true"></i></span>
                 <a href="#">Art &amp; Design</a>
             </div>
-            <div class="price">Free</div>
+            <div class="price">{{course_price}}</div>
         </div>
     </div>
     <!-- ##### Single Course Intro End ##### -->
@@ -46,7 +46,7 @@
                         <div class="clever-tabs-content">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="tab--1" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false">Description</a>
+                                    <a class="nav-link active" id="tab--1" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false">{{course_description}}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="tab--2" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="true">Curriculum</a>
