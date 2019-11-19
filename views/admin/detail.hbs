@@ -1,0 +1,63 @@
+<div class="row page-titles">
+    <div class="col-5 align-self-center">
+        <h4 class="text-themecolor">Update course</h4>
+    </div>
+    <div class="col-7 align-self-center text-right">
+        <div class="d-flex justify-content-end align-items-center">
+            <a href="/admin/course" class="btn btn-info mr-2">
+                <i class="fa fa-backward"></i> Back
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" action="/admin/course/update">
+                    <input hidden value="{{courseDetail.course_id}}" name="id">
+                    <div class="form-group">
+                        <label for="nameInput">Name</label>
+                        <input type="text" value="{{courseDetail.course_name}}" class="form-control" id="nameInput"
+                            name="name" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="subjectInput">Subject</label>
+                        <select class="form-control" id="subjectInput" name="subject">
+                            {{#each listSubject}}
+                            <option value="{{this.subject_id}}"
+                                {{selected this.subject_id ../courseDetail.course_subject}}>{{subject_name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="startInput">Start date</label>
+                            <input type="date" value={{courseDetail.course_start_date}} class="form-control"
+                                id="startInput" name="startDate" placeholder="Start date">
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="endInput">End date</label>
+                            <input type="date" value={{courseDetail.course_end_date}} class="form-control" id="endInput"
+                                name="endDate" placeholder="End date">
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="priceInput">Price</label>
+                        <input type="text" value="{{courseDetail.course_price}}" class="form-control" id="priceInput"
+                            name="price" placeholder="Price">
+                    </div>
+                    <div class="form-group">
+                        <label for="descriptionInput">Description</label>
+                        <textarea class="form-control" id="descriptionInput" name="description"
+                            placeholder="Description" rows="5">{{courseDetail.course_description}}</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-info float-right">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
