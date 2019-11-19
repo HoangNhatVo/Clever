@@ -6,10 +6,10 @@ if (process.env.JAWSDB_URL) {
 }
 else {
     connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: 'tandat2001',
-        database: 'edu'
+        host: 'sql12.freemysqlhosting.net',
+        user: 'sql12311454',
+        password: 'g1GGbf7zp5',
+        database: 'sql12311454'
     });
     connection.connect(function(err) {
         if (err) throw err;
