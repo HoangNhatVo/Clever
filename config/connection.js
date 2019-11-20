@@ -8,6 +8,7 @@ else {
     connection = mysql.createConnection({
         host: 'localhost',
         user:'root',
+        user: 'root',
         password: '12345678',
         database: 'clever'
     });

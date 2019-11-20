@@ -40,7 +40,6 @@ router.get('/blog-detail', function(req,res,next){
 router.get('/courses',async function(req,res,next){
   try {
     var listCourse = await indexModel.allCourse(1)
-    console.log(listCourse)
     res.render('courses',
     {
       listCourse
@@ -54,6 +53,7 @@ router.get('/courses',async function(req,res,next){
 router.get('/single-course/:ID',function(req,res,next){
   var ID = req.params.ID;
   courseModel.detailCourse(ID).then(course=>{
+    console.log(course)
     res.render('single-course',{course});
   }).catch(err=>{
     console.log(err);
