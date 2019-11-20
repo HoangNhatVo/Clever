@@ -6,10 +6,10 @@ if (process.env.JAWSDB_URL) {
 }
 else {
     connection = mysql.createConnection({
-        host: 'db4free.net',
-        user: 'cleverteam',
-        password: '11119999',
-        database: 'cleverdbbeta'
+        host: 'localhost',
+        user: 'root',
+        password: '12345678',
+        database: 'clever'
     });
     connection.connect(function(err) {
         if (err) throw err;
