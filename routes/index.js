@@ -10,6 +10,7 @@ router.get('/', async function(req, res, next) {
   try {
     var listCourse = await indexModel.allCourse(1)
     var listSubject = await indexModel.allSubject()
+    console.log(listCourse)
     res.render('index',
     {
       listCourse,
