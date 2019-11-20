@@ -50,14 +50,26 @@ router.get('/courses',async function(req,res,next){
 })
 
 
-router.get('/single-course/:ID',function(req,res,next){
-  var ID = req.params.ID;
-  courseModel.detailCourse(ID).then(course=>{
-    console.log(course)
-    res.render('single-course',{course});
-  }).catch(err=>{
-    console.log(err);
-  })
+router.get('/single-course:ID',async function(req,res){
+  try {
+    var ID =req.params.ID;
+    var course = await courseModel.detailCourse(ID);
+    res.render('single-course',
+    {
+      course
+    });
+  } catch (error) {
+    console.log(error)
+  }
+  // var ID = req.params.ID;
+  // courseModel.detailCourse(ID).then(course=>{
+  //   console.log(course);
+  //   res.render('single-course',{
+  //     course
+  //   });
+  // }).catch(err=>{
+  //   console.log(err);
+  // })
 })
 router.get('/instructor',function(req,res,next){
   res.render('instructor')

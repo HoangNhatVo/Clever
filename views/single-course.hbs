@@ -7,14 +7,15 @@
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Courses</a></li>
                 <li class="breadcrumb-item"><a href="#">Art &amp; Design</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{course_subject}}</li>
+                {{#each course}}
+                <li class="breadcrumb-item active" aria-current="page">{{course_name}}</li>
             </ol>
         </nav>
     </div>
     <!-- ##### Breadcumb Area End ##### -->
 
-    <!-- ##### Single Course Intro Start ##### -->
-    <div class="single-course-intro d-flex align-items-center justify-content-center" style="background-image: url(img/bg-img/bg3.jpg);">
+    <!-- ##### Single Course Intro Start ##### -->  
+    <div class="single-course-intro d-flex align-items-center justify-content-center" style="background-image: url({{course_banner}}); background-position:right">
         <!-- Content -->
         <div class="single-course-intro-content text-center">
             <!-- Ratings -->
@@ -25,13 +26,13 @@
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star-o" aria-hidden="true"></i>
             </div>
-            <h3>{{course_subject}}</h3>
+            <h3>{{course_name}}</h3>
             <div class="meta d-flex align-items-center justify-content-center">
                 <a href="#">Sarah Parker</a>
                 <span><i class="fa fa-circle" aria-hidden="true"></i></span>
                 <a href="#">Art &amp; Design</a>
             </div>
-            <div class="price">{{course_price}}</div>
+            <div class="price"><h3>Price: {{course_price}}$</h3></div>
         </div>
     </div>
     <!-- ##### Single Course Intro End ##### -->
@@ -46,7 +47,7 @@
                         <div class="clever-tabs-content">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="tab--1" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false">{{course_description}}</a>
+                                    <a class="nav-link active" id="tab--1" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false">Description</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="tab--2" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="true">Curriculum</a>
@@ -70,7 +71,7 @@
                                         <!-- About Course -->
                                         <div class="about-course mb-30">
                                             <h4>About this course</h4>
-                                            <p>Sed elementum lacus a risus luctus suscipit. Aenean sollicitudin sapien neque, in fermentum lorem dignissim a. Nullam eu mattis quam. Donec porttitor nunc a diam molestie blandit. Maecenas quis ultrices ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam eget vehicula lorem, vitae porta nisi. Ut vel quam erat. Ut vitae erat tincidunt, tristique mi ac, pharetra dolor. In et suscipit ex. Pellentesque aliquet velit tortor, eget placerat mi scelerisque a. Aliquam eu dui efficitur purus posuere viverra. Proin ut elit mollis, euismod diam et, fermentum enim.</p>
+                                            <p>{{course_description}}</p>
                                         </div>
 
                                         <!-- All Instructors -->
@@ -716,5 +717,6 @@
             </div>
         </div>
     </div>
+    {{/each}}
     <!-- ##### Courses Content End ##### -->
 {{> footer }}
