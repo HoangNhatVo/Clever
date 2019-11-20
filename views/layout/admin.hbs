@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *Must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Clever - Education &amp; Courses Template | Home</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="/img/core-img/favicon.ico">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/stylesheets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.min.css">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <!-- ##### Hero Area Start ##### -->
+    <div id="main-wrapper">
+        <!-- Top bar -->
+        <header class="topbar bg-info">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/admin">
+                        <!-- Logo icon --><b>
+                            <img src="/img/core-img/logo_admin.png"/>
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text --><span> 
+                         <img src="/img/core-img/logo2.png"/></span> </a>
+                    {{!-- <a class="navbar-brand" href="/admin">
+                        <img src="/img/core-img/logo_admin.png" alt="homepage" />
+                        <span class="mt-0"><img src="/img/core-img/logo2.png" alt="homepage" /></span> </a> --}}
+                </div>
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block"
+                                href="javascript:void(0)"><i class="fa fa-bars"></i></a> </li>
+                        <li class="nav-item"> <a class="nav-link nav-toggler d-block d-md-none" href="javascript:void(0)"><i class="fa fa-times"></i></a> </li>                       
+                    </ul>
+                    <ul class="navbar-nav my-lg-0">
+                        <li class="nav-item dropdown u-pro">
+                            <a class="nav-link dropdown-toggle profile-pic" href="javascript:void(0)"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY9wEv776CVZ45hpgf6i9ZX6foCtR4m-jq_ZQdLsU099dRhhj0&s"
+                                    alt="user" class=""> <span class="hidden-md-down">Mark &nbsp;<i
+                                        class="fa fa-angle-down"></i></span> </a>
+                            <div class="dropdown-menu dropdown-menu-right animated flipInY">
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="fa fa-user"></i> My
+                                    Profile</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Left sidebar -->
+        <aside class="left-sidebar">
+            <nav class="sidebar-nav">
+                <ul id="sidebarnav">
+                    <li>
+                        <a href="/admin" aria-expanded="false"><i class="fa fa-users"></i>
+                            <span class="hide-menu">Account</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/course" aria-expanded="false"><i class="fa fa-book"></i>
+                            <span class="hide-menu">Course</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                {{{body}}}
+            </div>
+        </div>
+    </div>
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="/js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="/js/bootstrap/bootstrap.min.js"></script>
+
+    <script src="/js/active.js"></script>
+    <script src="/js/custom.js"></script>
+    {{{_sections.js}}}
+</body>
+
+</html>

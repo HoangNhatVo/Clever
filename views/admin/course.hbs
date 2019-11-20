@@ -1,0 +1,153 @@
+{{#section 'js'}}
+<script>
+    $('.on-click-delete').on('click', function () {
+        var id = $(this).data('info').id;
+        $('#deleteModal .modal-body .idInput').val(id);
+        $('#deleteModal').modal();
+    });
+</script>
+{{/section}}
+<div class="row page-titles">
+    <div class="col-5 align-self-center">
+        <h4 class="text-themecolor">Courses</h4>
+    </div>
+    <div class="col-7 align-self-center text-right">
+        <div class="d-flex justify-content-end align-items-center">
+            <button type="button" class="btn btn-info mr-2" data-toggle="modal" data-target="#createModal">
+                <i class="fa fa-plus-circle"></i> Create
+                New</button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Price</th>
+                                <th>Description</th>
+                                <th class="text-nowrap">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each listCourse}}
+                            <tr>
+                                <td>{{course_id}}</td>
+                                <td>{{course_name}}</td>
+                                <th>{{courses_status}}</th>
+                                <td>{{course_price}}</td>
+                                <td>{{course_description}}</td>
+                                <td>
+                                    <form method="GET" action="">
+                                        <button name="id" type="submit" class="btn btn-info btn-sm" value={{course_id}}>
+                                            <i class="fa fa-pencil"></i>
+                                        </button>
+                                        <a role="button" href="javascript:;"
+                                            class="btn btn-danger btn-sm on-click-delete" data-toggle="modal"
+                                            data-info='{"id":{{course_id}} }'>
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </form>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+                <nav class="float-right mt-2">
+                    <ul class="pagination">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Course</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="/admin/course/create">
+                    <div class="form-group">
+                        <label for="nameInput">Name</label>
+                        <input type="text" class="form-control" id="nameInput" name="name" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="subjectInput">Subject</label>
+                        <select class="form-control" id="subjectInput" name="subject">
+                            {{#each listSubject}}
+                            <option value={{subject_id}}>{{subject_name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="startInput">Start date</label>
+                            <input type="date" class="form-control" id="startInput" name="startDate"
+                                placeholder="Start date">
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="endInput">End date</label>
+                            <input type="date" class="form-control" id="endInput" name="endDate" placeholder="End date">
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="priceInput">Price</label>
+                        <input type="text" class="form-control" id="priceInput" name="price" placeholder="Price">
+                    </div>
+                    <div class="form-group">
+                        <label for="descriptionInput">Description</label>
+                        <textarea class="form-control" id="descriptionInput" name="description"
+                            placeholder="Description" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-info float-right">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <form method="POST" action="/admin/course/delete">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete course</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input name="id" type="hidden" class="idInput">
+                    <p>Are you want to delete this course?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Comfirm</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
