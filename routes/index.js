@@ -75,9 +75,6 @@ router.get('/single-course/:ID',async function(req,res){
 router.get('/instructor',function(req,res,next){
   res.render('instructor')
 })
-router.get('/instructor/:ID',function(req,res,next){
-  res.render('instructor')
-})
 // Đăng nhập
 router.get('/login',function(req,res,next){
   if(!req.isAuthenticated() || req.user == true){

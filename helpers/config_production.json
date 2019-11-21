@@ -1,0 +1,9 @@
+{
+    "mysql" :{
+        "host": "sql12.freemysqlhosting.net",
+        "name": "sql12311454",
+        "username": "sql12311454",
+        "password": "g1GGbf7zp5",
+        "port": 3306
+    }
+}
