@@ -5,6 +5,7 @@
         $('#deleteModal .modal-body .idInput').val(id);
         $('#deleteModal').modal();
     });
+    $("#subjectInput").prop("selectedIndex", -1);
 </script>
 {{/section}}
 <div class="row page-titles">
@@ -88,14 +89,14 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="/admin/course/create">
+                <form id="formCreate" method="POST" action="/admin/course/create">
                     <div class="form-group">
                         <label for="nameInput">Name</label>
-                        <input type="text" class="form-control" id="nameInput" name="name" placeholder="Name">
+                        <input type="text" class="form-control" id="nameInput" name="name" placeholder="Name" required>
                     </div>
                     <div class="form-group">
                         <label for="subjectInput">Subject</label>
-                        <select class="form-control" id="subjectInput" name="subject">
+                        <select class="form-control" id="subjectInput" name="subject" required>
                             {{#each listSubject}}
                             <option value={{subject_id}}>{{subject_name}}</option>
                             {{/each}}
@@ -104,18 +105,17 @@
                     <div class="row">
                         <div class="form-group col-6">
                             <label for="startInput">Start date</label>
-                            <input type="date" class="form-control" id="startInput" name="startDate"
-                                placeholder="Start date">
+                            <input type="date" class="form-control" id="startInput" name="startDate" required>
                         </div>
                         <div class="form-group col-6">
                             <label for="endInput">End date</label>
-                            <input type="date" class="form-control" id="endInput" name="endDate" placeholder="End date">
+                            <input type="date" class="form-control" id="endInput" name="endDate">
                         </div>
 
                     </div>
                     <div class="form-group">
                         <label for="priceInput">Price</label>
-                        <input type="text" class="form-control" id="priceInput" name="price" placeholder="Price">
+                        <input type="text" class="form-control" id="priceInput" name="price" placeholder="Price" required>
                     </div>
                     <div class="form-group">
                         <label for="descriptionInput">Description</label>

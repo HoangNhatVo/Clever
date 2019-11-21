@@ -13,7 +13,7 @@ router.get('/course', async function (req, res, next) {
     try {
       const courseDetail = await adminModel.getOne('courses', 'course_id', req.query.id);
       const listSubject = await adminModel.findAll('subjects');
-      console.log(courseDetail)
+      
       courseDetail.course_start_date = moment(courseDetail.course_start_date).format('YYYY-MM-DD');
       courseDetail.course_end_date = moment(courseDetail.course_end_date).format('YYYY-MM-DD');
       res.render('admin/detail',
@@ -49,7 +49,7 @@ router.post('/course/create', async function (req, res, next) {
       course_name: name,
       course_subject: subject,
       course_start_date: startDate,
-      course_end_date: endDate,
+      course_end_date: endDate ? endDate : null,
       course_price: price,
       course_description: description
     });
