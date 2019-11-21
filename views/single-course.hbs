@@ -7,14 +7,15 @@
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Courses</a></li>
                 <li class="breadcrumb-item"><a href="#">Art &amp; Design</a></li>
-                <li class="breadcrumb-item active" aria-current="page">English Grammer</li>
+                {{#each course}}
+                <li class="breadcrumb-item active" aria-current="page">{{course_name}}</li>
             </ol>
         </nav>
     </div>
     <!-- ##### Breadcumb Area End ##### -->
 
-    <!-- ##### Single Course Intro Start ##### -->
-    <div class="single-course-intro d-flex align-items-center justify-content-center" style="background-image: url(img/bg-img/bg3.jpg);">
+    <!-- ##### Single Course Intro Start ##### -->  
+    <div class="single-course-intro d-flex align-items-center justify-content-center" style="background-image: url({{course_banner}}); background-position:right">
         <!-- Content -->
         <div class="single-course-intro-content text-center">
             <!-- Ratings -->
@@ -25,13 +26,13 @@
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star-o" aria-hidden="true"></i>
             </div>
-            <h3>English Grammar</h3>
+            <h3>{{course_name}}</h3>
             <div class="meta d-flex align-items-center justify-content-center">
                 <a href="#">Sarah Parker</a>
                 <span><i class="fa fa-circle" aria-hidden="true"></i></span>
                 <a href="#">Art &amp; Design</a>
             </div>
-            <div class="price">Free</div>
+            <div class="price"><h3>Price: {{course_price}}$</h3></div>
         </div>
     </div>
     <!-- ##### Single Course Intro End ##### -->
@@ -70,7 +71,7 @@
                                         <!-- About Course -->
                                         <div class="about-course mb-30">
                                             <h4>About this course</h4>
-                                            <p>Sed elementum lacus a risus luctus suscipit. Aenean sollicitudin sapien neque, in fermentum lorem dignissim a. Nullam eu mattis quam. Donec porttitor nunc a diam molestie blandit. Maecenas quis ultrices ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam eget vehicula lorem, vitae porta nisi. Ut vel quam erat. Ut vitae erat tincidunt, tristique mi ac, pharetra dolor. In et suscipit ex. Pellentesque aliquet velit tortor, eget placerat mi scelerisque a. Aliquam eu dui efficitur purus posuere viverra. Proin ut elit mollis, euismod diam et, fermentum enim.</p>
+                                            <p>{{course_description}}</p>
                                         </div>
 
                                         <!-- All Instructors -->
@@ -82,7 +83,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="single-instructor d-flex align-items-center mb-30">
                                                         <div class="instructor-thumb">
-                                                            <img src="img/bg-img/t1.png" alt="">
+                                                            <img src="/img/bg-img/t1.png" alt="">
                                                         </div>
                                                         <div class="instructor-info">
                                                             <h5>Sarah Parker</h5>
@@ -95,7 +96,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="single-instructor d-flex align-items-center mb-30">
                                                         <div class="instructor-thumb">
-                                                            <img src="img/bg-img/t2.png" alt="">
+                                                            <img src="/img/bg-img/t2.png" alt="">
                                                         </div>
                                                         <div class="instructor-info">
                                                             <h5>Sarah Parker</h5>
@@ -108,7 +109,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="single-instructor d-flex align-items-center mb-30">
                                                         <div class="instructor-thumb">
-                                                            <img src="img/bg-img/t3.png" alt="">
+                                                            <img src="/img/bg-img/t3.png" alt="">
                                                         </div>
                                                         <div class="instructor-info">
                                                             <h5>Sarah Parker</h5>
@@ -121,7 +122,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="single-instructor d-flex align-items-center mb-30">
                                                         <div class="instructor-thumb">
-                                                            <img src="img/bg-img/t4.png" alt="">
+                                                            <img src="/img/bg-img/t4.png" alt="">
                                                         </div>
                                                         <div class="instructor-info">
                                                             <h5>Sarah Parker</h5>
@@ -342,7 +343,7 @@
                                                 <!-- Review Admin -->
                                                 <div class="review-admin d-flex">
                                                     <div class="thumb">
-                                                        <img src="img/bg-img/t1.png" alt="">
+                                                        <img src="/img/bg-img/t1.png" alt="">
                                                     </div>
                                                     <div class="text">
                                                         <h6>Sarah Parker</h6>
@@ -367,7 +368,7 @@
                                                 <!-- Review Admin -->
                                                 <div class="review-admin d-flex">
                                                     <div class="thumb">
-                                                        <img src="img/bg-img/t1.png" alt="">
+                                                        <img src="/img/bg-img/t1.png" alt="">
                                                     </div>
                                                     <div class="text">
                                                         <h6>Sarah Parker</h6>
@@ -405,7 +406,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="single-instructor d-flex align-items-center mb-30">
                                                         <div class="instructor-thumb">
-                                                            <img src="img/bg-img/t1.png" alt="">
+                                                            <img src="/img/bg-img/t1.png" alt="">
                                                         </div>
                                                         <div class="instructor-info">
                                                             <h5>Sarah Parker</h5>
@@ -418,7 +419,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="single-instructor d-flex align-items-center mb-30">
                                                         <div class="instructor-thumb">
-                                                            <img src="img/bg-img/t2.png" alt="">
+                                                            <img src="/img/bg-img/t2.png" alt="">
                                                         </div>
                                                         <div class="instructor-info">
                                                             <h5>Sarah Parker</h5>
@@ -431,7 +432,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="single-instructor d-flex align-items-center mb-30">
                                                         <div class="instructor-thumb">
-                                                            <img src="img/bg-img/t3.png" alt="">
+                                                            <img src="/img/bg-img/t3.png" alt="">
                                                         </div>
                                                         <div class="instructor-info">
                                                             <h5>Sarah Parker</h5>
@@ -444,7 +445,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="single-instructor d-flex align-items-center mb-30">
                                                         <div class="instructor-thumb">
-                                                            <img src="img/bg-img/t4.png" alt="">
+                                                            <img src="/img/bg-img/t4.png" alt="">
                                                         </div>
                                                         <div class="instructor-info">
                                                             <h5>Sarah Parker</h5>
@@ -457,7 +458,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="single-instructor d-flex align-items-center mb-30">
                                                         <div class="instructor-thumb">
-                                                            <img src="img/bg-img/t1.png" alt="">
+                                                            <img src="/img/bg-img/t1.png" alt="">
                                                         </div>
                                                         <div class="instructor-info">
                                                             <h5>Sarah Parker</h5>
@@ -470,7 +471,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="single-instructor d-flex align-items-center mb-30">
                                                         <div class="instructor-thumb">
-                                                            <img src="img/bg-img/t2.png" alt="">
+                                                            <img src="/img/bg-img/t2.png" alt="">
                                                         </div>
                                                         <div class="instructor-info">
                                                             <h5>Sarah Parker</h5>
@@ -483,7 +484,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="single-instructor d-flex align-items-center mb-30">
                                                         <div class="instructor-thumb">
-                                                            <img src="img/bg-img/t3.png" alt="">
+                                                            <img src="/img/bg-img/t3.png" alt="">
                                                         </div>
                                                         <div class="instructor-info">
                                                             <h5>Sarah Parker</h5>
@@ -496,7 +497,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="single-instructor d-flex align-items-center mb-30">
                                                         <div class="instructor-thumb">
-                                                            <img src="img/bg-img/t4.png" alt="">
+                                                            <img src="/img/bg-img/t4.png" alt="">
                                                         </div>
                                                         <div class="instructor-info">
                                                             <h5>Sarah Parker</h5>
@@ -586,7 +587,7 @@
                                                 <!-- Review Admin -->
                                                 <div class="review-admin d-flex">
                                                     <div class="thumb">
-                                                        <img src="img/bg-img/t1.png" alt="">
+                                                        <img src="/img/bg-img/t1.png" alt="">
                                                     </div>
                                                     <div class="text">
                                                         <h6>Sarah Parker</h6>
@@ -611,7 +612,7 @@
                                                 <!-- Review Admin -->
                                                 <div class="review-admin d-flex">
                                                     <div class="thumb">
-                                                        <img src="img/bg-img/t1.png" alt="">
+                                                        <img src="/img/bg-img/t1.png" alt="">
                                                     </div>
                                                     <div class="text">
                                                         <h6>Sarah Parker</h6>
@@ -671,7 +672,7 @@
                         <!-- Widget -->
                         <div class="sidebar-widget">
                             <h4>Certification</h4>
-                            <img src="img/bg-img/cer.png" alt="">
+                            <img src="/img/bg-img/cer.png" alt="">
                         </div>
 
                         <!-- Widget -->
@@ -681,7 +682,7 @@
                             <!-- Single Courses -->
                             <div class="single--courses d-flex align-items-center">
                                 <div class="thumb">
-                                    <img src="img/bg-img/yml.jpg" alt="">
+                                    <img src="/img/bg-img/yml.jpg" alt="">
                                 </div>
                                 <div class="content">
                                     <h5>Vocabulary</h5>
@@ -692,7 +693,7 @@
                             <!-- Single Courses -->
                             <div class="single--courses d-flex align-items-center">
                                 <div class="thumb">
-                                    <img src="img/bg-img/yml2.jpg" alt="">
+                                    <img src="/img/bg-img/yml2.jpg" alt="">
                                 </div>
                                 <div class="content">
                                     <h5>Expository writing</h5>
@@ -703,7 +704,7 @@
                             <!-- Single Courses -->
                             <div class="single--courses d-flex align-items-center">
                                 <div class="thumb">
-                                    <img src="img/bg-img/yml3.jpg" alt="">
+                                    <img src="/img/bg-img/yml3.jpg" alt="">
                                 </div>
                                 <div class="content">
                                     <h5>Vocabulary</h5>
@@ -716,5 +717,6 @@
             </div>
         </div>
     </div>
+    {{/each}}
     <!-- ##### Courses Content End ##### -->
 {{> footer }}
