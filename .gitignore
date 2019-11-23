@@ -22,3 +22,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+<<<<<<< HEAD
+.gitconfig
+=======
+.gitconfig
+>>>>>>> bf7e7f311b14590bb65d4b4ac9d5e3f732b7ab79

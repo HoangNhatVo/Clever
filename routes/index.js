@@ -1,5 +1,11 @@
 var express = require('express');
 var router = express.Router();
+
+var indexModel = require('../proc/index.model');
+var courseModel = require('../proc/course.model');
+
+var passport = require('passport');
+var bCrypt = require('bcrypt');
 var indexModel = require('../proc/index.model');
 
 var passport = require('passport');
@@ -34,7 +40,6 @@ router.get('/blog-detail', function(req,res,next){
 router.get('/courses',async function(req,res,next){
   try {
     var listCourse = await indexModel.allCourse(1)
-    console.log(listCourse)
     res.render('courses',
     {
       listCourse
@@ -43,13 +48,33 @@ router.get('/courses',async function(req,res,next){
     console.log(error)
   }
 })
-router.get('/single-course',function(req,res,next){
-  res.render('single-course')
+
+
+router.get('/single-course/:ID',async function(req,res){
+  try {
+    var ID =req.params.ID;
+    var course = await courseModel.detailCourse(ID);
+    console.log(course)
+    res.render('single-course',
+    {
+      course
+    });
+  } catch (error) {
+    console.log(error)
+  }
+  // var ID = req.params.ID;
+  // courseModel.detailCourse(ID).then(course=>{
+  //   console.log(course);
+  //   res.render('single-course',{
+  //     course
+  //   });
+  // }).catch(err=>{
+  //   console.log(err);
+  // })
 })
 router.get('/instructor',function(req,res,next){
   res.render('instructor')
 })
-
 // Đăng nhập
 router.get('/login',function(req,res,next){
   if(!req.isAuthenticated() || req.user == true){
