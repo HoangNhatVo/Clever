@@ -57,6 +57,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('./MiddleWares/auth_locals.mdw'));
+app.use(require('./MiddleWares/local.mdw'));
 
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
