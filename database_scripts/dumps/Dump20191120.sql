@@ -346,11 +346,11 @@ DROP TABLE IF EXISTS `transactions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `transactions` (
-  `transaction_id` int(11) NOT NULL,
+  `transaction_id` int(11) NOT NULL AUTO_INCREMENT,
   `transaction_account` int(11) NOT NULL,
-  `transaction_type` varchar(45) NOT NULL DEFAULT 'bank',
+  `transaction_type` varchar(45) NOT NULL,
   `transaction_description` varchar(45) DEFAULT NULL,
-  `transaction_amount` varchar(45) NOT NULL DEFAULT '0',
+  `transaction_amount` int(11) default null,
   PRIMARY KEY (`transaction_id`),
   KEY `fk_transactions_1_idx` (`transaction_account`),
   CONSTRAINT `fk_transactions_1` FOREIGN KEY (`transaction_account`) REFERENCES `accounts` (`account_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
