@@ -54,7 +54,6 @@ router.get('/single-course/:ID',async function(req,res){
   try {
     var ID =req.params.ID;
     var course = await courseModel.detailCourse(ID);
-    console.log(course)
     res.render('single-course',
     {
       course
@@ -62,19 +61,15 @@ router.get('/single-course/:ID',async function(req,res){
   } catch (error) {
     console.log(error)
   }
-  // var ID = req.params.ID;
-  // courseModel.detailCourse(ID).then(course=>{
-  //   console.log(course);
-  //   res.render('single-course',{
-  //     course
-  //   });
-  // }).catch(err=>{
-  //   console.log(err);
-  // })
 })
 router.get('/instructor',function(req,res,next){
   res.render('instructor')
 })
+
+router.get('/profile',function(req,res,next){
+  res.render('profile')
+})
+
 // Đăng nhập
 router.get('/login',function(req,res,next){
   if(!req.isAuthenticated() || req.user == true){
