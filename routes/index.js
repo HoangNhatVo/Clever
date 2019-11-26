@@ -3,7 +3,7 @@ var router = express.Router();
 
 var indexModel = require('../proc/index.model');
 var courseModel = require('../proc/course.model');
-
+var rechargeModel = require('../proc/recharge.model')
 var passport = require('passport');
 var bCrypt = require('bcrypt');
 var indexModel = require('../proc/index.model');
@@ -46,6 +46,30 @@ router.get('/courses',async function(req,res,next){
     });
   } catch (error) {
     console.log(error)
+  }
+})
+
+router.get('/recharge', async function(req,res,next){
+  if(req.user)
+  {
+  res.render('recharge')
+  }
+  else {
+    res.redirect('/login')
+  }
+})
+
+router.post('/recharge', async function(req,res,next){
+  try{
+    var ID = req.user.account_id
+    var type =  req.body.homenetwork;
+    var amount = parseInt(req.body.denominations)
+    console.log(ID,type,amount)
+    var recharge = await rechargeModel.rechargeMoney(ID,type,amount)
+    res.render('recharge-sucess')
+  }
+  catch (error){
+    res.send('error')
   }
 })
 
