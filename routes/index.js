@@ -7,6 +7,7 @@ var rechargeModel = require('../proc/recharge.model')
 var passport = require('passport');
 var bCrypt = require('bcrypt');
 var indexModel = require('../proc/index.model');
+var profileModel=require('../proc/account.model')
 
 var passport = require('passport');
 var bCrypt = require('bcrypt');
@@ -105,8 +106,18 @@ router.get('/instructor',function(req,res,next){
   res.render('instructor')
 })
 
-router.get('/profile',function(req,res,next){
-  res.render('profile')
+router.get('/profile/:ID',async function(req,res,next){
+  try {
+    var ID =req.params.ID;
+    var user = await profileModel.getAccountDetails(ID);
+    if(user[0].balance===null) user[0].balance=0;
+    res.render('profile',
+    {
+      user
+    });
+  } catch (error) {
+    console.log(error)
+  }
 })
 
 // Đăng nhập
