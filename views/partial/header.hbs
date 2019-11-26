@@ -51,18 +51,15 @@
               <li><a href="/">Home</a></li>
               <li><a href="/courses">Courses</a>
                 <ul class="dropdown">
-                  {{#each listSubject}}
-                  <li><a href="/single-course">{{subject_name}}</a></li>
+                  {{#each ListSub}}
+                  <li><a href="/course/{{subject_id}}">{{subject_name}}</a></li>
                   {{/each}}
                 </ul>
               </li>
               <li><a href="/instructor">Instructors</a></li>
               <li><a href="/blog">Blog</a></li>
-              <li><a href="/blog-detail">Single Blog</a></li>
               <li><a href="/contact">Contact</a></li>
-
             </ul>
-
             <!-- Search Button -->
             <div class="search-area">
               <form action="#" method="post">

@@ -1,4 +1,4 @@
---"CREATE" PROCEDURES
+----"CREATE" PROCEDURES
 DELIMITER $$
 USE `clever`$$
 CREATE PROCEDURE AddAccount(in role varchar(10), in email varchar(45), 
@@ -10,7 +10,7 @@ BEGIN
 								last_name, address, birthdate);
 END;$$
 DELIMITER ;
---VD Khi mình gọi trên project: call AddAccount('a1','a2','a3','a4','a5','a6','a7','a8','a9')
+#--VD Khi mình gọi trên project: call AddAccount('a1','a2','a3','a4','a5','a6','a7','a8','a9')
 
 DELIMITER $$
 USE `clever`$$
@@ -19,7 +19,7 @@ BEGIN
 	insert into answers values (null, question, content, correct);
 END;$$
 DELIMITER ;
---VD call AddAnswer(1,'abc',1)
+#--VD call AddAnswer(1,'abc',1)
 
 DELIMITER $$
 USE `clever`$$
@@ -28,7 +28,7 @@ BEGIN
 	insert into as_qu values (assignmentID, questionID, point);
 END;$$
 DELIMITER ;
---VD call AddAS_QU(1,1,1)
+#--VD call AddAS_QU(1,1,1)
 
 
 DELIMITER $$
@@ -38,7 +38,7 @@ BEGIN
 	insert into assignments values (null, type, lession, timeout, author);
 END;$$
 DELIMITER ;
---VD call AddAssignment('abc',1,1,1)
+#--VD call AddAssignment('abc',1,1,1)
 
 DELIMITER $$
 USE `clever`$$
@@ -47,7 +47,7 @@ BEGIN
 	insert into co_ac values (accountID, courseID, role);
 END;$$
 DELIMITER ;
---VD call AddCO_AC(1,1,'abc')
+#--VD call AddCO_AC(1,1,'abc')
 
 DELIMITER $$
 USE `clever`$$
@@ -57,7 +57,7 @@ BEGIN
 	insert into courses values (null, 'active', name, subject, start_date, end_date, price, description);
 END;$$
 DELIMITER ;
---VD call AddCourse(..................)
+#--VD call AddCourse(..................)
 
 DELIMITER $$
 USE `clever`$$
@@ -66,7 +66,7 @@ BEGIN
 	insert into lessons values (null, 'active', course, title, content);
 END;$$
 DELIMITER ;
---VD call AddLesson(..................)
+#--VD call AddLesson(..................)
 
 
 DELIMITER $$
@@ -76,7 +76,7 @@ BEGIN
 	insert into questions values (null, 'active', type, content, author);
 END;$$
 DELIMITER ;
---VD call AddQuestion(..................)
+#--VD call AddQuestion(..................)
 
 DELIMITER $$
 USE `clever`$$
@@ -85,7 +85,7 @@ BEGIN
 	insert into resources values (null, name, url, type, lesson);
 END;$$
 DELIMITER ;
---VD call AddResource(..................)
+#--VD call AddResource(..................)
 
 
 DELIMITER $$
@@ -95,7 +95,7 @@ BEGIN
 	insert into student_answers values (id, account, answer, assignment);
 END;$$
 DELIMITER ;
---VD call AddStudent_Answer(..................)
+#--VD call AddStudent_Answer(..................)
 
 
 DELIMITER $$
@@ -105,15 +105,22 @@ BEGIN
 	insert into subjects values (null, 'active', grade, name);
 END;$$
 DELIMITER ;
---VD call AddSubject(..................)
-
+#---VD call AddSubject(..................)
 
 DELIMITER $$
 USE `clever`$$
-CREATE PROCEDURE AddTransaction(in id int(11), in account int(11), in type varchar(45), 
-								in description varchar(45), in amount varchar(45))
+CREATE PROCEDURE AddTransaction(in accountID int(11), in type varchar(45), in amount int(11))
 BEGIN
-	insert into transactions values (id, account, type, description, amount);
+	insert into transactions values (null, accountID, type, '', amount);
 END;$$
 DELIMITER ;
+
+#---DELIMITER $$
+#---USE `clever`$$
+#---CREATE PROCEDURE AddTransaction(in id int(11), in account int(11), in type varchar(45), 
+#-								in description varchar(45), in amount varchar(45))
+#--BEGIN
+#--	insert into transactions values (id, account, type, description, amount);
+#-- END;$$
+#--DELIMITER ;
 # VD call AddTransaction(..................)

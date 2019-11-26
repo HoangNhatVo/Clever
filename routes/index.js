@@ -49,6 +49,21 @@ router.get('/courses',async function(req,res,next){
   }
 })
 
+router.get('/course/:ID',async function(req,res,next){
+  try {
+    var ID =req.params.ID
+    var listCoursebySub = await indexModel.allCoursebySubject(1,ID)
+    var Subject = await indexModel.getSubjectById(ID)
+    console.log(Subject)
+    res.render('course',
+    {
+      listCoursebySub,
+      Subject
+    });
+  } catch (error) {
+    console.log(error)
+  }
+})
 
 router.get('/single-course/:ID',async function(req,res){
   try {
