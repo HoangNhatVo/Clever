@@ -3,7 +3,7 @@ var router = express.Router();
 
 var indexModel = require('../proc/index.model');
 var courseModel = require('../proc/course.model');
-
+var rechargeModel = require('../proc/recharge.model')
 var passport = require('passport');
 var bCrypt = require('bcrypt');
 var indexModel = require('../proc/index.model');
@@ -49,6 +49,30 @@ router.get('/courses',async function(req,res,next){
   }
 })
 
+router.get('/recharge', async function(req,res,next){
+  if(req.user)
+  {
+  res.render('recharge')
+  }
+  else {
+    res.redirect('/login')
+  }
+})
+
+router.post('/recharge', async function(req,res,next){
+  try{
+    var ID = req.user.account_id
+    var type =  req.body.homenetwork;
+    var amount = parseInt(req.body.denominations)
+    console.log(ID,type,amount)
+    var recharge = await rechargeModel.rechargeMoney(ID,type,amount)
+    res.render('recharge-sucess')
+  }
+  catch (error){
+    res.send('error')
+  }
+})
+
 router.get('/course/:ID',async function(req,res,next){
   try {
     var ID =req.params.ID
@@ -77,15 +101,6 @@ router.get('/single-course/:ID',async function(req,res){
   } catch (error) {
     console.log(error)
   }
-  // var ID = req.params.ID;
-  // courseModel.detailCourse(ID).then(course=>{
-  //   console.log(course);
-  //   res.render('single-course',{
-  //     course
-  //   });
-  // }).catch(err=>{
-  //   console.log(err);
-  // })
 })
 router.get('/instructor',function(req,res,next){
   res.render('instructor')
