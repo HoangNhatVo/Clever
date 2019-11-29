@@ -22,3 +22,21 @@ BEGIN
 	select * from accounts where account_phone COLLATE utf8mb4_unicode_ci = phone;
 END;$$
 DELIMITER ;
+
+DELIMITER $$
+USE `sql12313586`$$
+CREATE PROCEDURE UpdatePasswordAccountByID(in ID int(11), in newPass varchar(72))
+BEGIN
+	update accounts a
+    set a.account_password = newPass
+    where a.account_id = ID;
+END;$$
+DELIMITER ;
+
+DELIMITER $$
+USE `sql12313586`$$
+CREATE PROCEDURE GetAccountByID(in ID int(11))
+BEGIN
+	select * from accounts where account_status COLLATE utf8mb4_unicode_ci = 'active' and account_id = ID;
+END;$$
+DELIMITER ;

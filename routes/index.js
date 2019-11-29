@@ -10,9 +10,9 @@ var bCrypt = require('bcrypt');
 var indexModel = require('../proc/index.model');
 var profileModel=require('../proc/account.model')
 
-var passport = require('passport');
-var bCrypt = require('bcrypt');
-
+// var passport = require('passport');
+// var bCrypt = require('bcrypt');
+const saltRounds = 10;
 /* GET home page. */
 router.get('/', async function(req, res, next) {
   try {
@@ -139,7 +139,7 @@ router.get('/login',function(req,res,next){
 
 router.post('/login', passport.authenticate('local-login', {
   failureRedirect: '/login',
-  successRedirect: '/recharge',
+  successRedirect: '/',
   failureFlash: true
 }),
   function (req, res) {
@@ -179,5 +179,46 @@ router.post('/logout', function (req, res) {
   res.redirect('/');
 });
 
+// Đổi mật khẩu
+router.get('/changepassword', async function(req,res,next){
+  if(req.isAuthenticated()){
+    res.render('./change-password',{message: req.flash('changePasswordMessage')})
+  }
+  else{
+    res.redirect('/login');
+  }
+})
+
+router.post('/changepassword', function(req,res,next){
+  var ID = req.user.account_id;
+  var newPass = bCrypt.hashSync(req.body.newPassword, bCrypt.genSaltSync(saltRounds));
+  profileModel.getAccountByID(ID).then(r=>{
+    if(!r.length){
+      req.flash('changePasswordMessage', 'Không tìm thấy người dùng.');
+      res.redirect('/changepassword');
+    }
+    else{
+      if(!bCrypt.compareSync(req.body.curPassword, r[0].account_password)){
+        req.flash('changePasswordMessage', 'Nhập mật khẩu hiện tại không đúng.');
+        res.redirect('/changepassword');
+      }
+      else{
+        profileModel.updatePasswordAccountByID(ID, newPass).then(r1=>{
+          req.logout();
+          req.session.cookie.expires = false;
+          res.redirect('/');
+        }).catch(err=>{
+          console.log(err);
+          req.flash('changePasswordMessage', 'Đã xảy ra lỗi.');
+          res.redirect('/changepassword');
+        })
+      }
+    }
+  }).catch(err=>{
+    console.log(err);
+    req.flash('changePasswordMessage', 'Đã xảy ra lỗi.');
+    res.redirect('/changepassword');
+  })
+})
 
 module.exports = router;
