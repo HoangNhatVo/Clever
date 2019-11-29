@@ -1,5 +1,8 @@
 var orm = require('../config/orm')
 module.exports = {
+    callProc: proc => {
+        return orm.selectAll(`call ${proc}`)
+    },
     executeQuery: sql => {
         return orm.load(sql);
     },
@@ -10,7 +13,7 @@ module.exports = {
         return orm.add(table, entity);
     },
     getOne: (table, field, value) => {
-        return orm.selectAll(`select * from ${table} where ${field} = ${value}`)
+        return orm.selectAll(`select * from ${table} where ${field} = '${value}'`)
     },
     getAll: (table, field, value) => {
         return orm.load(`select * from ${table} where ${field} = ${value}`)
