@@ -15,7 +15,7 @@ var bCrypt = require('bcrypt');
 /* GET home page. */
 router.get('/', async function(req, res, next) {
   try {
-    var listCourse = await indexModel.allCourse(1)
+    var listCourse = await indexModel.allCourse()
     var listSubject = await indexModel.allSubject()
     res.render('index',
     {
@@ -40,7 +40,7 @@ router.get('/blog-detail', function(req,res,next){
 })
 router.get('/courses',async function(req,res,next){
   try {
-    var listCourse = await indexModel.allCourse(1)
+    var listCourse = await indexModel.allCourse()
     res.render('courses',
     {
       listCourse

@@ -1,7 +1,7 @@
 var orm = require('../config/orm')
 module.exports = {
-    allCourse: (page) => {
-        return orm.selectAll(`call GetActiveCourseList(${page})`);
+    allCourse: () => {
+        return orm.selectAll(`call GetActiveCourseList()`);
     },
     allSubject: () => {
     return orm.selectAll(`call GetListSubject()`)
