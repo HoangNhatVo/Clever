@@ -106,12 +106,12 @@ router.get('/instructor',function(req,res,next){
   res.render('instructor')
 })
 
-router.get('/profile/:ID',async function(req,res,next){
+router.get('/profile',async function(req,res,next){
   try {
-    var ID =req.params.ID;
+    var ID =req.user.account_id;
     var user = await profileModel.getAccountDetails(ID);
     if(user[0].balance===null) user[0].balance=0;
-    res.render('profile',
+    res.render('profile', 
     {
       user
     });
