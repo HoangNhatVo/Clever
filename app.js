@@ -27,6 +27,12 @@ app.engine('.hbs', exphbs({
   extname: '.hbs',
   helpers: {
     section: express_handlebars_sections(),
+    isEqual: (v1, v2, options) => {
+      if (v1 === v2) {
+        return options.fn(this);
+      }
+      return options.inverse(this);
+    },
     selected: (option, value) => {
       if (option === value) {
         return ' selected';

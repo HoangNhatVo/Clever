@@ -3,6 +3,7 @@ var router = express.Router();
 
 var indexModel = require('../proc/index.model');
 var courseModel = require('../proc/course.model');
+var lessonModel = require('../proc/lesson.model')
 var rechargeModel = require('../proc/recharge.model')
 var passport = require('passport');
 var bCrypt = require('bcrypt');
@@ -94,9 +95,13 @@ router.get('/single-course/:ID',async function(req,res){
   try {
     var ID =req.params.ID;
     var course = await courseModel.detailCourse(ID);
+    const lessons = await lessonModel.findAll('lessons', 'lesson_course', ID, 'lesson_week');
+    const resources = await lessonModel.getAll('resources');
     res.render('single-course',
     {
-      course
+      course: course[0],
+      lessons,
+      resources
     });
   } catch (error) {
     console.log(error)
