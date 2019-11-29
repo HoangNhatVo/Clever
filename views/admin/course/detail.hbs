@@ -23,13 +23,35 @@
                             name="name" placeholder="Name">
                     </div>
                     <div class="form-group">
-                        <label for="subjectInput">Subject</label>
-                        <select class="form-control" id="subjectInput" name="subject">
-                            {{#each listSubject}}
-                            <option value="{{this.subject_id}}"
-                                {{selected this.subject_id ../courseDetail.course_subject}}>{{subject_name}}</option>
-                            {{/each}}
+                        <label for="statusInput">Status</label>
+                        <select class="form-control" id="statusInput" name="status">
+                            {{#select courseDetail.courses_status}}
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            {{/select}}
                         </select>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="subjectInput">Subject</label>
+                            <select class="form-control" id="subjectInput" name="subject">
+                                {{#each listSubject}}
+                                <option value="{{this.subject_id}}"
+                                    {{selected this.subject_id ../courseDetail.course_subject}}>{{subject_name}}
+                                </option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="accountInput">Teacher</label>
+                            <select class="form-control" id="accountInput" name="teacher">
+                                {{#each listTeacher}}
+                                <option value="{{this.account_id}}"
+                                    {{selected this.account_id ../courseDetail.co_ac_account}}>{{account_username}}
+                                </option>
+                                {{/each}}
+                            </select>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-6">
@@ -42,7 +64,6 @@
                             <input type="date" value={{courseDetail.course_end_date}} class="form-control" id="endInput"
                                 name="endDate" placeholder="End date">
                         </div>
-
                     </div>
                     <div class="form-group">
                         <label for="priceInput">Price</label>
@@ -54,7 +75,12 @@
                         <textarea class="form-control" id="descriptionInput" name="description"
                             placeholder="Description" rows="5">{{courseDetail.course_description}}</textarea>
                     </div>
-                    <button type="submit" class="btn btn-info float-right">Submit</button>
+                    <div class="form-group">
+                        <label for="bannerInput">Banner</label>
+                        <textarea class="form-control" id="bannerInput" name="banner"
+                            placeholder="Banner" rows="3">{{courseDetail.course_banner}}</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-info float-right">Save</button>
                 </form>
             </div>
         </div>

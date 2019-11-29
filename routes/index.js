@@ -3,6 +3,7 @@ var router = express.Router();
 
 var indexModel = require('../proc/index.model');
 var courseModel = require('../proc/course.model');
+var lessonModel = require('../proc/lesson.model')
 var rechargeModel = require('../proc/recharge.model')
 var passport = require('passport');
 var bCrypt = require('bcrypt');
@@ -94,9 +95,13 @@ router.get('/single-course/:ID',async function(req,res){
   try {
     var ID =req.params.ID;
     var course = await courseModel.detailCourse(ID);
+    const lessons = await lessonModel.findAll('lessons', 'lesson_course', ID, 'lesson_week');
+    const resources = await lessonModel.getAll('resources');
     res.render('single-course',
     {
-      course
+      course: course[0],
+      lessons,
+      resources
     });
   } catch (error) {
     console.log(error)
@@ -106,12 +111,12 @@ router.get('/instructor',function(req,res,next){
   res.render('instructor')
 })
 
-router.get('/profile/:ID',async function(req,res,next){
+router.get('/profile',async function(req,res,next){
   try {
-    var ID =req.params.ID;
+    var ID =req.user.account_id;
     var user = await profileModel.getAccountDetails(ID);
     if(user[0].balance===null) user[0].balance=0;
-    res.render('profile',
+    res.render('profile', 
     {
       user
     });
