@@ -134,7 +134,7 @@ router.get('/login',function(req,res,next){
 
 router.post('/login', passport.authenticate('local-login', {
   failureRedirect: '/login',
-  successRedirect: '/',
+  successRedirect: '/recharge',
   failureFlash: true
 }),
   function (req, res) {
