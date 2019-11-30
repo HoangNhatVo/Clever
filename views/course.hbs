@@ -1,3 +1,12 @@
+{{#section 'js'}}
+<script>
+    $('.btn-buycourse').on('click', function () {
+        var id = $(this).data('info').id;
+        $('#buycourseModal .modal-body .idInput').val(id);
+        $('#buycourseModal').modal();
+    });
+</script>
+{{/section}}
 {{> header }}
 <!-- ##### Breadcumb Area Start ##### -->
 <div class="breadcumb-area">
@@ -53,7 +62,7 @@
               </div>
             </div>
             <div class="course-fee h-100">
-              <a href="#" class="free">{{course_price}}đ</a>
+              <a href="#" class="free btn-buycourse" data-toggle="modal" data-info='{"id":{{course_id}} }'>{{course_price}}đ</a>
             </div>
           </div>
         </div>
@@ -69,6 +78,30 @@
     </div>
   </div>
 </section>
+
+<div class="modal fade" id="buycourseModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <form method="POST" action="/buycourse">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Buy course</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input name="id" type="hidden" class="idInput">
+                    <p>Are you want to buy this course?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Comfirm</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <!-- ##### Popular Course Area End ##### -->
 
 {{> footer }}
