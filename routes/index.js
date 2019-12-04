@@ -223,7 +223,7 @@ router.post('/changepassword', function(req,res,next){
     req.flash('changePasswordMessage', 'Đã xảy ra lỗi.');
     res.redirect('/changepassword');
   })
-
+})
 //Mua khóa học
 router.post('/buycourse', async function (req, res) {
   if (!req.user)
@@ -252,4 +252,5 @@ router.post('/buycourse', async function (req, res) {
 router.get('/yourcourse', function(req,res){
   res.render('yourcourse')
 })
+
 module.exports = router;
