@@ -193,7 +193,7 @@ router.post('/buycourse', async function (req, res) {
       else {
         console.log(IDuser,parseFloat(id))
         const buy = await courseModel.buyCourse(IDuser, parseFloat(id))
-        res.redirect('yourcourse')
+        res.redirect('/yourcourse')
       }
     }
     catch (err) {
