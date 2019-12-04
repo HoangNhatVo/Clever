@@ -3,14 +3,16 @@ var router = express.Router();
 var adminModel = require('../proc/admin.model');
 var moment = require('moment');
 
+var isAdministrator = require('../MiddleWares/auth_administrator');
+var isAdmin = require('../MiddleWares/auth_admin');
 //#region Account
-router.get('/', function (req, res, next) {
+router.get('/', isAdmin, function (req, res, next) {
   res.render('admin/account', { layout: 'admin' });
 });
 //#endregion
 
 //#region Course
-router.get('/course', async function (req, res, next) {
+router.get('/course', isAdmin, async function (req, res, next) {
   if (req.query.id) {
     try {
       const courseDetail = await adminModel.executeQuery(`select * from courses, co_ac where course_id = ${req.query.id} and course_id = co_ac_course`);
@@ -109,7 +111,7 @@ router.post('/course/delete', async function (req, res, next) {
 })
 //#endregion
 
-router.get('/lesson', async function (req, res, next) {
+router.get('/lesson', isAdmin, async function (req, res, next) {
   if (req.query.id) {
     try {
       const lessonDetail = await adminModel.getOne('lessons', 'lesson_id', req.query.id);

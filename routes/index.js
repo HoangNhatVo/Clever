@@ -10,6 +10,8 @@ var bCrypt = require('bcrypt');
 var indexModel = require('../proc/index.model');
 var profileModel=require('../proc/account.model')
 
+var auth = require('../MiddleWares/auth_student');
+
 // var passport = require('passport');
 // var bCrypt = require('bcrypt');
 const saltRounds = 10;
@@ -51,7 +53,7 @@ router.get('/courses',async function(req,res,next){
   }
 })
 
-router.get('/recharge', async function(req,res,next){
+router.get('/recharge', auth, async function(req,res,next){
   if(req.user)
   {
   res.render('recharge')
@@ -75,7 +77,7 @@ router.post('/recharge', async function(req,res,next){
   }
 })
 
-router.get('/course/:ID',async function(req,res,next){
+router.get('/course/:ID', async function(req,res,next){
   try {
     var ID =req.params.ID
     var listCoursebySub = await indexModel.allCoursebySubject(1,ID)
@@ -111,7 +113,7 @@ router.get('/instructor',function(req,res,next){
   res.render('instructor')
 })
 
-router.get('/profile',async function(req,res,next){
+router.get('/profile',auth, async function(req,res,next){
   try {
     var ID =req.user.account_id;
     var user = await profileModel.getAccountDetails(ID);

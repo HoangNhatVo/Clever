@@ -30,7 +30,6 @@ module.exports = function(passport) {
                 return done(null, false, req.flash('loginMessage', 'Mật khẩu không đúng.'));
             }     
             
-            console.log(username+password);
             return done(null, user[0]);
 
         }).catch(err =>{

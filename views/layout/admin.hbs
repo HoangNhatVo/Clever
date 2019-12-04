@@ -47,21 +47,25 @@
                                 href="javascript:void(0)"><i class="fa fa-bars"></i></a> </li>
                         <li class="nav-item"> <a class="nav-link nav-toggler d-block d-md-none" href="javascript:void(0)"><i class="fa fa-times"></i></a> </li>                       
                     </ul>
+                    {{#if user}}
+                    <form action="/logout" method="post" id="frmSignout"></form>
                     <ul class="navbar-nav my-lg-0">
                         <li class="nav-item dropdown u-pro">
                             <a class="nav-link dropdown-toggle profile-pic" href="javascript:void(0)"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
                                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY9wEv776CVZ45hpgf6i9ZX6foCtR4m-jq_ZQdLsU099dRhhj0&s"
-                                    alt="user" class=""> <span class="hidden-md-down">Mark &nbsp;<i
+                                    alt="user" class=""> <span class="hidden-md-down">{{user.account_first_name}}
+                  {{user.account_last_name}} &nbsp;<i
                                         class="fa fa-angle-down"></i></span> </a>
                             <div class="dropdown-menu dropdown-menu-right animated flipInY">
                                 <a href="javascript:void(0)" class="dropdown-item"><i class="fa fa-user"></i> My
                                     Profile</a>
                                 <div class="dropdown-divider"></div>
-                                <a href="#" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
+                                <a href="javascript: $('#frmSignout').submit();" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
                             </div>
                         </li>
                     </ul>
+                    {{/if}}
                 </div>
             </nav>
         </header>
