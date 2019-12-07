@@ -16,7 +16,7 @@ module.exports = {
         return orm.selectAll(`select * from ${table} where ${field} = '${value}'`)
     },
     getAll: (table, field, value) => {
-        return orm.load(`select * from ${table} where ${field} = ${value}`)
+        return orm.load(`select * from ${table} where ${field} = '${value}'`)
     },
     updateOne: (table, id, entity) => {
         return orm.update(table, id, entity)
