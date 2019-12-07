@@ -4,8 +4,8 @@
   <!-- Breadcumb -->
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Courses</a></li>
+      <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+      <li class="breadcrumb-item"><a href="#">Các khóa học</a></li>
       {{#each Subject}}
       <li class="breadcrumb-item active" aria-current="page">{{subject_name}}</li>
       {{/each}}
@@ -63,12 +63,39 @@
     <div class="row">
       <div class="col-12">
         <div class="load-more text-center wow fadeInUp" data-wow-delay="1000ms">
-          <a href="#" class="btn clever-btn btn-2">Load More</a>
+          <a href="#" class="btn clever-btn btn-2">Xem thêm</a>
         </div>
       </div>
     </div>
   </div>
 </section>
+<<<<<<< Updated upstream
+=======
+
+<div class="modal fade" id="buycourseModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <form method="POST" action="/buycourse">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Mua khóa học</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input name="id" type="hidden" class="idInput">
+                    <p>Bạn có chắc muốn mua khóa học này?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Xác nhận</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+>>>>>>> Stashed changes
 <!-- ##### Popular Course Area End ##### -->
 
 {{> footer }}

@@ -5,8 +5,8 @@
       <div class="col-12">
         <!-- Hero Content -->
         <div class="hero-content text-center">
-          <h2>Let's Study Together</h2>
-          <a href="#" class="btn clever-btn">Get Started</a>
+          <h2>Hãy học cùng nhau</h2>
+          <a href="#" class="btn clever-btn">Bắt đầu</a>
         </div>
       </div>
     </div>
@@ -25,7 +25,7 @@
             <img src="img/core-img/docs.png" alt="">
           </div>
           <h2><span class="counter">1912</span></h2>
-          <h5>Success Stories</h5>
+          <h5>Câu chuyện thành công</h5>
         </div>
       </div>
 
@@ -36,7 +36,7 @@
             <img src="img/core-img/star.png" alt="">
           </div>
           <h2><span class="counter">123</span></h2>
-          <h5>Dedicated Tutors</h5>
+          <h5>Giáo viên tận tâm</h5>
         </div>
       </div>
 
@@ -47,7 +47,7 @@
             <img src="img/core-img/events.png" alt="">
           </div>
           <h2><span class="counter">89</span></h2>
-          <h5>Scheduled Events</h5>
+          <h5>Sự kiện</h5>
         </div>
       </div>
 
@@ -58,7 +58,7 @@
             <img src="img/core-img/earth.png" alt="">
           </div>
           <h2><span class="counter">56</span></h2>
-          <h5>Available Courses</h5>
+          <h5>Khóa học</h5>
         </div>
       </div>
     </div>
@@ -72,7 +72,7 @@
     <div class="row">
       <div class="col-12">
         <div class="section-heading">
-          <h3>Popular Online Courses</h3>
+          <h3>Các khóa học trực tuyến phổ biến</h3>
         </div>
       </div>
     </div>
@@ -122,7 +122,7 @@
     <div class="row">
       <div class="col-12">
         <div class="section-heading">
-          <h3>The Best Tutors in Town</h3>
+          <h3>Những giáo viên tốt nhất</h3>
         </div>
       </div>
     </div>
@@ -131,86 +131,7 @@
       <div class="col-12">
         <div class="tutors-slide owl-carousel wow fadeInUp" data-wow-delay="250ms">
 
-          <!-- Single Tutors Slide -->
-          <div class="single-tutors-slides">
-            <!-- Tutor Thumbnail -->
-            <div class="tutor-thumbnail">
-              <img src="img/bg-img/t1.png" alt="">
-            </div>
-            <!-- Tutor Information -->
-            <div class="tutor-information text-center">
-              <h5>Alex Parker</h5>
-              <span>Teacher</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet
-                tincidunt mauris ultrices vitae.</p>
-              <div class="social-info">
-                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Single Tutors Slide -->
-          <div class="single-tutors-slides">
-            <!-- Tutor Thumbnail -->
-            <div class="tutor-thumbnail">
-              <img src="img/bg-img/t2.png" alt="">
-            </div>
-            <!-- Tutor Information -->
-            <div class="tutor-information text-center">
-              <h5>Alex Parker</h5>
-              <span>Teacher</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet
-                tincidunt mauris ultrices vitae.</p>
-              <div class="social-info">
-                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Single Tutors Slide -->
-          <div class="single-tutors-slides">
-            <!-- Tutor Thumbnail -->
-            <div class="tutor-thumbnail">
-              <img src="img/bg-img/t3.png" alt="">
-            </div>
-            <!-- Tutor Information -->
-            <div class="tutor-information text-center">
-              <h5>Alex Parker</h5>
-              <span>Teacher</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet
-                tincidunt mauris ultrices vitae.</p>
-              <div class="social-info">
-                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Single Tutors Slide -->
-          <div class="single-tutors-slides">
-            <!-- Tutor Thumbnail -->
-            <div class="tutor-thumbnail">
-              <img src="img/bg-img/t4.png" alt="">
-            </div>
-            <!-- Tutor Information -->
-            <div class="tutor-information text-center">
-              <h5>Alex Parker</h5>
-              <span>Teacher</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet
-                tincidunt mauris ultrices vitae.</p>
-              <div class="social-info">
-                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-              </div>
-            </div>
-          </div>
-
+          {{#each listInstructor}}
           <!-- Single Tutors Slide -->
           <div class="single-tutors-slides">
             <!-- Tutor Thumbnail -->
@@ -219,17 +140,22 @@
             </div>
             <!-- Tutor Information -->
             <div class="tutor-information text-center">
-              <h5>Alex Parker</h5>
-              <span>Teacher</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet
-                tincidunt mauris ultrices vitae.</p>
+              <h5>{{account_first_name}} {{account_last_name}}</h5>
+              <span>Giáo viên</span>
+              <div>
+                 <div>Địa chỉ: {{account_address}}  </div>                 
+                 <div>Số điện thoại: {{account_phone}}</div> 
+                 <div>Email: {{account_email}}</div> 
+              </div>
               <div class="social-info">
-                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                <a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
               </div>
             </div>
           </div>
+          {{/each}}
+
         </div>
       </div>
     </div>
@@ -246,7 +172,7 @@
       <div class="row">
         <div class="col-12">
           <div class="forms">
-            <h4>Courses For Free</h4>
+            <h4>Các khóa học miễn phí</h4>
             <form action="#" method="post">
               <div class="row">
                 <div class="col-12 col-lg-6">
@@ -270,7 +196,7 @@
                   </div>
                 </div>
                 <div class="col-12">
-                  <button class="btn clever-btn w-100">Send Message</button>
+                  <button class="btn clever-btn w-100">Gửi yêu cầu</button>
                 </div>
               </div>
             </form>
@@ -282,7 +208,7 @@
 
   <!-- Register Now Countdown -->
   <div class="register-now-countdown mb-100 wow fadeInUp" data-wow-delay="500ms">
-    <h3>Register Now</h3>
+    <h3>Đăng kí ngay</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris
       ultrices vitae. Donec bibendum tortor sed mi faucibus vehicula. Sed erat lorem</p>
     <!-- Register Countdown -->
@@ -299,7 +225,7 @@
     <div class="row">
       <div class="col-12">
         <div class="section-heading">
-          <h3>Upcoming events</h3>
+          <h3>Các sự kiện sắp tới</h3>
         </div>
       </div>
     </div>
@@ -311,13 +237,13 @@
           <!-- Events Thumb -->
           <div class="events-thumb">
             <img src="img/bg-img/e1.jpg" alt="">
-            <h6 class="event-date">August 26</h6>
-            <h4 class="event-title">Networking Day</h4>
+            <h6 class="event-date">26 tháng 8</h6>
+            <h4 class="event-title">Ngày kết nối</h4>
           </div>
           <!-- Date & Fee -->
           <div class="date-fee d-flex justify-content-between">
             <div class="date">
-              <p><i class="fa fa-clock"></i> August 26 @ 9:00 am</p>
+              <p><i class="fa fa-clock"></i> 26 tháng 8 @ 9:00 am</p>
             </div>
             <div class="events-fee">
               <a href="#">$45</a>
@@ -332,16 +258,16 @@
           <!-- Events Thumb -->
           <div class="events-thumb">
             <img src="img/bg-img/e2.jpg" alt="">
-            <h6 class="event-date">August 7</h6>
-            <h4 class="event-title">Open Doors Day</h4>
+            <h6 class="event-date">7 tháng 8</h6>
+            <h4 class="event-title">Ngày mở cửa</h4>
           </div>
           <!-- Date & Fee -->
           <div class="date-fee d-flex justify-content-between">
             <div class="date">
-              <p><i class="fa fa-clock"></i> August 7 @ 9:00 am</p>
+              <p><i class="fa fa-clock"></i> 7 tháng 8 @ 9:00 am</p>
             </div>
             <div class="events-fee">
-              <a href="#" class="free">Free</a>
+              <a href="#" class="free">Miễn phí</a>
             </div>
           </div>
         </div>
@@ -353,13 +279,13 @@
           <!-- Events Thumb -->
           <div class="events-thumb">
             <img src="img/bg-img/e3.jpg" alt="">
-            <h6 class="event-date">August 3</h6>
-            <h4 class="event-title">Creative Leadership</h4>
+            <h6 class="event-date">3 tháng 8</h6>
+            <h4 class="event-title">Nhà lãnh đạo sáng tạo</h4>
           </div>
           <!-- Date & Fee -->
           <div class="date-fee d-flex justify-content-between">
             <div class="date">
-              <p><i class="fa fa-clock"></i> August 3 @ 9:00 am</p>
+              <p><i class="fa fa-clock"></i> 3 tháng 8 @ 9:00 am</p>
             </div>
             <div class="events-fee">
               <a href="#">$45</a>
@@ -378,7 +304,7 @@
     <div class="row">
       <div class="col-12">
         <div class="section-heading">
-          <h3>From Our Blog</h3>
+          <h3>Từ Blog của chúng tôi</h3>
         </div>
       </div>
     </div>
@@ -391,12 +317,12 @@
           <!-- Blog Content -->
           <div class="blog-content">
             <a href="#" class="blog-headline">
-              <h4>English Grammer</h4>
+              <h4>Ngữ pháp tiếng Anh</h4>
             </a>
             <div class="meta d-flex align-items-center">
-              <a href="#">Sarah Parker</a>
+              <a href="#">Tê Tê</a>
               <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-              <a href="#">Art &amp; Design</a>
+              <a href="#">Thiết kế nghệ thuật</a>
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis
             </p>
@@ -411,12 +337,12 @@
           <!-- Blog Content -->
           <div class="blog-content">
             <a href="#" class="blog-headline">
-              <h4>English Grammer</h4>
+              <h4>Ngữ pháp tiếng Anh</h4>
             </a>
             <div class="meta d-flex align-items-center">
-              <a href="#">Sarah Parker</a>
+              <a href="#">Phấn Thị</a>
               <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-              <a href="#">Art &amp; Design</a>
+              <a href="#">Thiết kế nghệ thuật</a>
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis
             </p>

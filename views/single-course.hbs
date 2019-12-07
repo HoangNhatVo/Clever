@@ -4,11 +4,18 @@
   <!-- Breadcumb -->
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
+<<<<<<< Updated upstream
       <li class="breadcrumb-item"><a href="#">Home</a></li>
       <li class="breadcrumb-item"><a href="#">Courses</a></li>
       <li class="breadcrumb-item"><a href="#">Art &amp; Design</a></li>
       {{#each course}}
       <li class="breadcrumb-item active" aria-current="page">{{course_name}}</li>
+=======
+      <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+      <li class="breadcrumb-item"><a href="#">Khóa học</a></li>
+      <li class="breadcrumb-item"><a href="#">Luyện thi đại học</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{course.course_name}}</li>
+>>>>>>> Stashed changes
     </ol>
   </nav>
 </div>
@@ -29,12 +36,16 @@
     </div>
     <h3>{{course_name}}</h3>
     <div class="meta d-flex align-items-center justify-content-center">
-      <a href="#">Sarah Parker</a>
+      <a href="#">Vân Hoàng</a>
       <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-      <a href="#">Art &amp; Design</a>
+      <a href="#">Luyện thi đại học</a>
     </div>
     <div class="price">
+<<<<<<< Updated upstream
       <h3>Price: {{course_price}}$</h3>
+=======
+      <h3>Giá tiền: {{course.course_price}}đ</h3>
+>>>>>>> Stashed changes
     </div>
   </div>
 </div>
@@ -51,23 +62,23 @@
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item">
                 <a class="nav-link active" id="tab--1" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1"
-                  aria-selected="false">Description</a>
+                  aria-selected="false">Mô tả</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="tab--2" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2"
-                  aria-selected="true">Curriculum</a>
+                  aria-selected="true">Chương trình</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="tab--3" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3"
-                  aria-selected="true">Reviews</a>
+                  aria-selected="true">Đánh giá</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="tab--4" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4"
-                  aria-selected="true">Members</a>
+                  aria-selected="true">Thành viên</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="tab--5" data-toggle="tab" href="#tab5" role="tab" aria-controls="tab5"
-                  aria-selected="true">Forum</a>
+                  aria-selected="true">Diễn đàn</a>
               </li>
             </ul>
 
@@ -78,13 +89,18 @@
 
                   <!-- About Course -->
                   <div class="about-course mb-30">
+<<<<<<< Updated upstream
                     <h4>About this course</h4>
                     <p>{{course_description}}</p>
+=======
+                    <h4>Về khóa học</h4>
+                    <p>{{course.course_description}}</p>
+>>>>>>> Stashed changes
                   </div>
 
                   <!-- All Instructors -->
                   <div class="all-instructors mb-30">
-                    <h4>All Instructors</h4>
+                    <h4>Các giáo viên</h4>
 
                     <div class="row">
                       <!-- Single Instructor -->
@@ -94,8 +110,8 @@
                             <img src="/img/bg-img/t1.png" alt="">
                           </div>
                           <div class="instructor-info">
-                            <h5>Sarah Parker</h5>
-                            <span>Teacher</span>
+                            <h5>Phấn Thị</h5>
+                            <span>Giáo viên</span>
                           </div>
                         </div>
                       </div>
@@ -107,8 +123,8 @@
                             <img src="/img/bg-img/t2.png" alt="">
                           </div>
                           <div class="instructor-info">
-                            <h5>Sarah Parker</h5>
-                            <span>Teacher</span>
+                            <h5>Vân Hoàng</h5>
+                            <span>Giáo viên</span>
                           </div>
                         </div>
                       </div>
@@ -120,8 +136,8 @@
                             <img src="/img/bg-img/t3.png" alt="">
                           </div>
                           <div class="instructor-info">
-                            <h5>Sarah Parker</h5>
-                            <span>Teacher</span>
+                            <h5>Tê Tê</h5>
+                            <span>Giáo viên</span>
                           </div>
                         </div>
                       </div>
@@ -133,8 +149,8 @@
                             <img src="/img/bg-img/t4.png" alt="">
                           </div>
                           <div class="instructor-info">
-                            <h5>Sarah Parker</h5>
-                            <span>Teacher</span>
+                            <h5>Nguyễn Nam</h5>
+                            <span>Giáo viên</span>
                           </div>
                         </div>
                       </div>
@@ -143,15 +159,14 @@
 
                   <!-- FAQ -->
                   <div class="clever-faqs">
-                    <h4>FAQs</h4>
+                    <h4>Hỏi đáp</h4>
 
                     <div class="accordions" id="accordion" role="tablist" aria-multiselectable="true">
 
                       <!-- Single Accordian Area -->
                       <div class="panel single-accordion">
                         <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne"
-                            data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Can I just enroll in a
-                            single course? I'm not interested in the entire Specialization?
+                            data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Cho em hỏi em có thể mua riêng từng khóa được không?
                             <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
                             <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
                           </a></h6>
@@ -165,8 +180,7 @@
                       <div class="panel single-accordion">
                         <h6>
                           <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo"
-                            data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">What is the refund
-                            policy?
+                            data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">Được học miễn phí trong bao lâu ?
                             <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
                             <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
                           </a>
@@ -179,38 +193,10 @@
                       </div>
 
                       <!-- Single Accordian Area -->
-                      <div class="panel single-accordion">
-                        <h6>
-                          <a role="button" aria-expanded="true" aria-controls="collapseThree" class="collapsed"
-                            data-parent="#accordion" data-toggle="collapse" href="#collapseThree">What background
-                            knowledge is necessary?
-                            <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                            <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                          </a>
-                        </h6>
-                        <div id="collapseThree" class="accordion-content collapse">
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel lectus eu felis semper
-                            finibus ac eget ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                            vulputate id justo quis facilisis.</p>
-                        </div>
-                      </div>
+                      
 
                       <!-- Single Accordian Area -->
-                      <div class="panel single-accordion">
-                        <h6>
-                          <a role="button" aria-expanded="true" aria-controls="collapseFour" class="collapsed"
-                            data-parent="#accordion" data-toggle="collapse" href="#collapseFour">Do i need to take the
-                            courses in a specific order?
-                            <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                            <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                          </a>
-                        </h6>
-                        <div id="collapseFour" class="accordion-content collapse">
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel lectus eu felis semper
-                            finibus ac eget ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                            vulputate id justo quis facilisis.</p>
-                        </div>
-                      </div>
+                     
                     </div>
 
                   </div>
@@ -460,7 +446,7 @@
                           </div>
                           <div class="instructor-info">
                             <h5>Sarah Parker</h5>
-                            <span>Teacher</span>
+                            <span>Giáo viên</span>
                           </div>
                         </div>
                       </div>
@@ -473,7 +459,7 @@
                           </div>
                           <div class="instructor-info">
                             <h5>Sarah Parker</h5>
-                            <span>Teacher</span>
+                            <span>Giáo viên</span>
                           </div>
                         </div>
                       </div>
@@ -486,7 +472,7 @@
                           </div>
                           <div class="instructor-info">
                             <h5>Sarah Parker</h5>
-                            <span>Teacher</span>
+                            <span>Giáo viên</span>
                           </div>
                         </div>
                       </div>
@@ -499,7 +485,7 @@
                           </div>
                           <div class="instructor-info">
                             <h5>Sarah Parker</h5>
-                            <span>Teacher</span>
+                            <span>Giáo viên</span>
                           </div>
                         </div>
                       </div>
@@ -512,7 +498,7 @@
                           </div>
                           <div class="instructor-info">
                             <h5>Sarah Parker</h5>
-                            <span>Teacher</span>
+                            <span>Giáo viên</span>
                           </div>
                         </div>
                       </div>
@@ -525,7 +511,7 @@
                           </div>
                           <div class="instructor-info">
                             <h5>Sarah Parker</h5>
-                            <span>Teacher</span>
+                            <span>Giáo viên</span>
                           </div>
                         </div>
                       </div>
@@ -538,7 +524,7 @@
                           </div>
                           <div class="instructor-info">
                             <h5>Sarah Parker</h5>
-                            <span>Teacher</span>
+                            <span>Giáo viên</span>
                           </div>
                         </div>
                       </div>
@@ -551,7 +537,7 @@
                           </div>
                           <div class="instructor-info">
                             <h5>Sarah Parker</h5>
-                            <span>Teacher</span>
+                            <span>Giáo viên</span>
                           </div>
                         </div>
                       </div>
@@ -699,30 +685,30 @@
       <div class="col-12 col-lg-4">
         <div class="course-sidebar">
           <!-- Buy Course -->
-          <a href="#" class="btn clever-btn mb-30 w-100">Buy course</a>
+          <a href="#" class="btn clever-btn mb-30 w-100">Mua khóa học</a>
 
           <!-- Widget -->
           <div class="sidebar-widget">
-            <h4>Course Features</h4>
+            <h4>Đặc điểm khóa học</h4>
             <ul class="features-list">
               <li>
-                <h6><i class="fa fa-clock-o" aria-hidden="true"></i> Duration</h6>
-                <h6>2 Weeks</h6>
+                <h6><i class="fa fa-clock-o" aria-hidden="true"></i> Thời gian</h6>
+                <h6>2 tuần</h6>
               </li>
               <li>
-                <h6><i class="fa fa-bell" aria-hidden="true"></i> Lectures</h6>
+                <h6><i class="fa fa-bell" aria-hidden="true"></i> Số bài giảng</h6>
                 <h6>10</h6>
               </li>
               <li>
-                <h6><i class="fa fa-file" aria-hidden="true"></i> Quizzes</h6>
+                <h6><i class="fa fa-file" aria-hidden="true"></i> Câu hỏi</h6>
                 <h6>3</h6>
               </li>
               <li>
-                <h6><i class="fa fa-thumbs-up" aria-hidden="true"></i> Pass Percentage</h6>
+                <h6><i class="fa fa-thumbs-up" aria-hidden="true"></i> Tỉ lệ đậu</h6>
                 <h6>60</h6>
               </li>
               <li>
-                <h6><i class="fa fa-thumbs-down" aria-hidden="true"></i> Max Retakes</h6>
+                <h6><i class="fa fa-thumbs-down" aria-hidden="true"></i> Số lần thi lại tối đa</h6>
                 <h6>5</h6>
               </li>
             </ul>
@@ -730,13 +716,13 @@
 
           <!-- Widget -->
           <div class="sidebar-widget">
-            <h4>Certification</h4>
+            <h4>Chứng chỉ</h4>
             <img src="/img/bg-img/cer.png" alt="">
           </div>
 
           <!-- Widget -->
           <div class="sidebar-widget">
-            <h4>You may like</h4>
+            <h4>Có thể bạn thích</h4>
 
             <!-- Single Courses -->
             <div class="single--courses d-flex align-items-center">
@@ -744,7 +730,7 @@
                 <img src="/img/bg-img/yml.jpg" alt="">
               </div>
               <div class="content">
-                <h5>Vocabulary</h5>
+                <h5>Từ vựng</h5>
                 <h6>$20</h6>
               </div>
             </div>
@@ -755,7 +741,7 @@
                 <img src="/img/bg-img/yml2.jpg" alt="">
               </div>
               <div class="content">
-                <h5>Expository writing</h5>
+                <h5>Luyện viết</h5>
                 <h6>$45</h6>
               </div>
             </div>
@@ -766,7 +752,7 @@
                 <img src="/img/bg-img/yml3.jpg" alt="">
               </div>
               <div class="content">
-                <h5>Vocabulary</h5>
+                <h5>Từ vựng</h5>
                 <h6>$20</h6>
               </div>
             </div>

@@ -7,7 +7,12 @@ var rechargeModel = require('../proc/recharge.model')
 var passport = require('passport');
 var bCrypt = require('bcrypt');
 var indexModel = require('../proc/index.model');
+<<<<<<< Updated upstream
 var profileModel=require('../proc/account.model')
+=======
+var profileModel = require('../proc/account.model')
+var accountModel=require('../proc/account.model')
+>>>>>>> Stashed changes
 
 var passport = require('passport');
 var bCrypt = require('bcrypt');
@@ -17,11 +22,21 @@ router.get('/', async function(req, res, next) {
   try {
     var listCourse = await indexModel.allCourse(1)
     var listSubject = await indexModel.allSubject()
+    var listInstructor = await accountModel.getListTeacher();
+    console.log(listInstructor);
     res.render('index',
+<<<<<<< Updated upstream
     {
       listCourse,
       listSubject
     });
+=======
+      {
+        listCourse,
+        listSubject,
+        listInstructor
+      });
+>>>>>>> Stashed changes
   } catch (error) {
     console.log(error)
   }
@@ -102,8 +117,21 @@ router.get('/single-course/:ID',async function(req,res){
     console.log(error)
   }
 })
+<<<<<<< Updated upstream
 router.get('/instructor',function(req,res,next){
   res.render('instructor')
+=======
+router.get('/instructor', async function (req, res, next) {
+  try {
+    var listInstructor = await accountModel.getListTeacher();
+    res.render('instructor',
+      {
+        listInstructor
+      });
+  } catch (error) {
+    console.log(error)
+  }
+>>>>>>> Stashed changes
 })
 
 router.get('/profile',async function(req,res,next){
