@@ -50,3 +50,21 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+DELIMITER $$
+USE `clever`$$
+CREATE PROCEDURE `GetAccountByRole`(in typeStr varchar(20) charset utf8mb4)
+BEGIN
+	select * from accounts where account_status = 'active' and account_role = typeStr;
+END$$
+
+DELIMITER ;
+
+DELIMITER $$
+USE `clever`$$
+CREATE PROCEDURE `GetCourseByStudentId`(in studentId int)
+BEGIN
+	select * from courses join co_ac on course_id = co_ac_course where co_ac_account = studentId and co_ac_role = 'student';
+END$$
+
+DELIMITER ;

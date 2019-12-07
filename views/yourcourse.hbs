@@ -1,3 +1,71 @@
 {{> header }}
-<div style="height:500px;text-align:center;background-color:#f1f1f1;line-height: 25">your course here</a></div>
+<!-- ##### Breadcumb Area Start ##### -->
+<div class="breadcumb-area">
+    <!-- Breadcumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Khóa học của bạn</a></li>
+        </ol>
+    </nav>
+</div>
+<!-- ##### Breadcumb Area End ##### -->
+
+<!-- ##### Catagory ##### -->
+<div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3"
+    style="background-image: url(/img/bg-img/bg2.jpg);">
+   <h3>Khóa học của bạn</h3>
+</div>
+
+<!-- ##### Popular Course Area Start ##### -->
+<section class="popular-courses-area section-padding-100">
+    <div class="container">
+        <div class="row">
+            <!-- Single Popular Course -->
+            {{#each listCoursesByStudentId}}
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="250ms">
+                    <a href="/single-course/{{course_id}}"><img src="/img/bg-img/c1.jpg" alt=""></a>
+                    <!-- Course Content -->
+                    <div class="course-content">
+                        <a style="color: black;" href="/single-course/{{course_id}}">
+                            <h4>{{course_name}}</h4>
+                        </a>
+                        <div class="meta d-flex align-items-center">
+                            <a href="#">{{account_first_name}} {{account_last_name}}</a>
+                            <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                            <a href="#">{{subject_name}}</a>
+                        </div>
+                        <p>{{course_description}}
+                        </p>
+                    </div>
+                    <!-- Seat Rating Fee -->
+                    <div class="seat-rating-fee d-flex justify-content-between">
+                        <div class="seat-rating h-100 d-flex align-items-center">
+                            <div class="seat">
+                                <i class="fa fa-user" aria-hidden="true"></i> 10
+                            </div>
+                            <div class="rating">
+                                <i class="fa fa-star" aria-hidden="true"></i> 4.5
+                            </div>
+                        </div>
+                        <div class="course-fee h-100">
+                            <a href="/single-course/{{course_id}}" style="background:#32CD32!important">Vào học</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="load-more text-center wow fadeInUp" data-wow-delay="1000ms">
+                    <a href="#" class="btn clever-btn btn-2">Load More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ##### Popular Course Area End ##### -->
+
 {{> footer }}

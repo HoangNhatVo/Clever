@@ -9,6 +9,9 @@ module.exports = {
     allCoursebySubject : (subId) =>{
         return orm.selectAll(`call GetActiveCourseListBySubject(${subId})`)
     },
+    allCourseByStudentId: studentId => {
+        return orm.selectAll(`call GetCourseByStudentId(${studentId})`)
+    },
     getSubjectById: (Id) => {
         return orm.selectAll(`call GetSubjectByID(${Id})`)
     }

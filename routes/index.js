@@ -249,8 +249,21 @@ router.post('/buycourse', async function (req, res) {
   }
 })
 
-router.get('/yourcourse', function(req,res){
-  res.render('yourcourse')
+router.get('/yourcourse', passport.authenticate('local-signup', {
+  failureRedirect: '/register',
+  successRedirect: '/login',
+  failureFlash: true
+}), async function(req,res){
+  try {
+    var stdId = req.user.account_id
+    var listCourses = await indexModel.allCourseByStudentId(stdId)
+    res.render('yourcourse',
+      {
+        listCoursesByStudentId: listCourses
+      } );
+  } catch (error) {
+    console.log(error)
+  }
 })
 
 module.exports = router;
