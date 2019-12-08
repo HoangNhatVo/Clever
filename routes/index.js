@@ -9,9 +9,6 @@ var passport = require('passport');
 var bCrypt = require('bcrypt');
 var indexModel = require('../proc/index.model');
 
-var profileModel=require('../proc/account.model')
-
-var profileModel = require('../proc/account.model')
 var accountModel=require('../proc/account.model')
 
 var profileModel = require('../proc/account.model')

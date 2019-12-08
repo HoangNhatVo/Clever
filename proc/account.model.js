@@ -14,7 +14,6 @@ module.exports = {
     },
     getAccountDetails:(ID)=>{
         return orm.selectAll(`call GetAccountDetails(${ID})`);
-
     },
     getAccountByID:(ID)=>{
         return orm.selectAll(`call GetAccountByID(${ID})`);
