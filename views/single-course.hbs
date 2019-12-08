@@ -4,18 +4,12 @@
   <!-- Breadcumb -->
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-<<<<<<< Updated upstream
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Courses</a></li>
-      <li class="breadcrumb-item"><a href="#">Art &amp; Design</a></li>
-      {{#each course}}
-      <li class="breadcrumb-item active" aria-current="page">{{course_name}}</li>
-=======
       <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
       <li class="breadcrumb-item"><a href="#">Khóa học</a></li>
       <li class="breadcrumb-item"><a href="#">Luyện thi đại học</a></li>
       <li class="breadcrumb-item active" aria-current="page">{{course.course_name}}</li>
->>>>>>> Stashed changes
+
+ 
     </ol>
   </nav>
 </div>
@@ -23,7 +17,7 @@
 
 <!-- ##### Single Course Intro Start ##### -->
 <div class="single-course-intro d-flex align-items-center justify-content-center"
-  style="background-image: url({{course_banner}}); background-position:right">
+  style="background-image: url({{course.course_banner}}); background-position:right">
   <!-- Content -->
   <div class="single-course-intro-content text-center">
     <!-- Ratings -->
@@ -34,18 +28,15 @@
       <i class="fa fa-star" aria-hidden="true"></i>
       <i class="fa fa-star-o" aria-hidden="true"></i>
     </div>
-    <h3>{{course_name}}</h3>
+    <h3>{{course.course_name}}</h3>
     <div class="meta d-flex align-items-center justify-content-center">
       <a href="#">Vân Hoàng</a>
       <span><i class="fa fa-circle" aria-hidden="true"></i></span>
       <a href="#">Luyện thi đại học</a>
     </div>
     <div class="price">
-<<<<<<< Updated upstream
-      <h3>Price: {{course_price}}$</h3>
-=======
       <h3>Giá tiền: {{course.course_price}}đ</h3>
->>>>>>> Stashed changes
+
     </div>
   </div>
 </div>
@@ -89,13 +80,8 @@
 
                   <!-- About Course -->
                   <div class="about-course mb-30">
-<<<<<<< Updated upstream
-                    <h4>About this course</h4>
-                    <p>{{course_description}}</p>
-=======
                     <h4>Về khóa học</h4>
                     <p>{{course.course_description}}</p>
->>>>>>> Stashed changes
                   </div>
 
                   <!-- All Instructors -->
@@ -220,30 +206,38 @@
                   </div>
 
                   <!-- Curriculum Level -->
+                  {{#each lessons}}
                   <div class="curriculum-level mb-30">
-                    <h4 class="d-flex justify-content-between"><span>Week 1</span> <span>0/4</span></h4>
-                    <h5>Beginners Level</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in,
-                      sagittis fringilla.</p>
+                    <h4 class="d-flex justify-content-between"><span>Week {{lesson_week}}</span></h4>
+                    <h5>{{lesson_title}}</h5>
+                    <p>{{lesson_content}}</p>
 
                     <ul class="curriculum-list">
-                      <li><i class="fa fa-file" aria-hidden="true"></i> 1 video, 1 audio, 1 reading
+                      <li><i class="fa fa-file" aria-hidden="true"></i>Resources:
                         <ul>
+                          {{#each ../resources}}
+                          {{#isEqual resource_lesson ../lesson_id}}
                           <li>
-                            <span><i class="fa fa-video-camera" aria-hidden="true"></i> Video: <span>Greetings and
-                                Introductions</span></span>
+                            <span><i class="fa fa-video-camera" aria-hidden="true"></i>
+                              {{#isEqual ../resource_type 'video'}}
+                              Video:
+                              {{else}}
+                              {{#isEqual ../resource_type 'audio'}}
+                              Audio:
+                              {{else}}
+                              Document:
+                              {{/isEqual}}
+                              {{/isEqual}}
+                              <a href="{{../resource_url}}" class="btn-link">{{../resource_name}}</a></span>
                             <span><i class="fa fa-clock-o" aria-hidden="true"></i> 15 minutes</span>
                           </li>
-                          <li>
-                            <span><i class="fa fa-file-text" aria-hidden="true"></i> Reading: <span>Word
-                                Types</span></span>
+                          {{/isEqual}}
+                          {{!-- <li>
+                            <span><i class="fa fa-video-camera" aria-hidden="true"></i>{{resource_type}}<span>{{resource_name}}</span></span>
                             <span><i class="fa fa-clock-o" aria-hidden="true"></i> 15 minutes</span>
-                          </li>
-                          <li>
-                            <span><i class="fa fa-volume-down" aria-hidden="true"></i> Audio: <span>Listening
-                                Exercise</span></span>
-                            <span><i class="fa fa-clock-o" aria-hidden="true"></i> 15 minutes</span>
-                          </li>
+                          </li> --}}
+                          {{/each}}
+
                         </ul>
                       </li>
                       <li class="d-flex justify-content-between">
@@ -254,40 +248,7 @@
                     </ul>
                   </div>
 
-                  <!-- Curriculum Level -->
-                  <div class="curriculum-level mb-30">
-                    <h4 class="d-flex justify-content-between"><span>Week 2</span> <span>0/5</span></h4>
-                    <h5>Intermediate Level</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in,
-                      sagittis fringilla.</p>
-
-                    <ul class="curriculum-list">
-                      <li><i class="fa fa-file" aria-hidden="true"></i> 1 video, 1 audio, 1 reading
-                        <ul>
-                          <li>
-                            <span><i class="fa fa-video-camera" aria-hidden="true"></i> Video: <span>Greetings and
-                                Introductions</span></span>
-                            <span><i class="fa fa-clock-o" aria-hidden="true"></i> 15 minutes</span>
-                          </li>
-                          <li>
-                            <span><i class="fa fa-file-text" aria-hidden="true"></i> Reading: <span>Word
-                                Types</span></span>
-                            <span><i class="fa fa-clock-o" aria-hidden="true"></i> 15 minutes</span>
-                          </li>
-                          <li>
-                            <span><i class="fa fa-volume-down" aria-hidden="true"></i> Audio: <span>Listening
-                                Exercise</span></span>
-                            <span><i class="fa fa-clock-o" aria-hidden="true"></i> 15 minutes</span>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="d-flex justify-content-between">
-                        <span><i class="fa fa-graduation-cap" aria-hidden="true"></i> Graded: Cumulative Language
-                          Quiz</span>
-                        <span>3 Questions</span>
-                      </li>
-                    </ul>
-                  </div>
+                  {{/each}}
                 </div>
               </div>
 
@@ -762,6 +723,5 @@
     </div>
   </div>
 </div>
-{{/each}}
 <!-- ##### Courses Content End ##### -->
 {{> footer }}

@@ -29,7 +29,9 @@
           <a href="/single-course/{{course_id}}"><img src="img/bg-img/c1.jpg" alt=""></a>
           <!-- Course Content -->
           <div class="course-content">
-            <a style="color: black;" href="/single-course/{{course_id}}"><h4>{{course_name}}</h4></a>
+            <a style="color: black;" href="/single-course/{{course_id}}">
+              <h4>{{course_name}}</h4>
+            </a>
             <div class="meta d-flex align-items-center">
               <a href="#">{{account_first_name}} {{account_last_name}}</a>
               <span><i class="fa fa-circle" aria-hidden="true"></i></span>
@@ -49,7 +51,7 @@
               </div>
             </div>
             <div class="course-fee h-100">
-              <a href="#" class="free">{{course_price}}đ</a>
+              <a href="#" class="free btn-buycourse" data-toggle="modal" data-info='{"id":{{course_id}} }'>{{course_price}}đ</a>
             </div>
           </div>
         </div>

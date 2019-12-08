@@ -21,7 +21,6 @@ module.exports = function(passport) {
         passReqToCallback : true
     },
     function(req, username, password, done) {
-        console.log(username+password);
         accountModel.getAccountByUsername(username).then(user => {
             if(!user.length){
                 console.log('abcd');
@@ -30,7 +29,7 @@ module.exports = function(passport) {
             if(!bCrypt.compareSync(password, user[0].account_password)){
                 return done(null, false, req.flash('loginMessage', 'Mật khẩu không đúng.'));
             }     
-
+            
             return done(null, user[0]);
 
         }).catch(err =>{

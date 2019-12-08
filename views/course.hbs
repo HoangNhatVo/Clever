@@ -1,3 +1,12 @@
+{{#section 'js'}}
+<script>
+    $('.btn-buycourse').on('click', function () {
+        var id = $(this).data('info').id;
+        $('#buycourseModal .modal-body .idInput').val(id);
+        $('#buycourseModal').modal();
+    });
+</script>
+{{/section}}
 {{> header }}
 <!-- ##### Breadcumb Area Start ##### -->
 <div class="breadcumb-area">
@@ -53,7 +62,7 @@
               </div>
             </div>
             <div class="course-fee h-100">
-              <a href="#" class="free">{{course_price}}đ</a>
+              <a href="#" class="free btn-buycourse" data-toggle="modal" data-info='{"id":{{course_id}} }'>{{course_price}}đ</a>
             </div>
           </div>
         </div>
@@ -69,8 +78,7 @@
     </div>
   </div>
 </section>
-<<<<<<< Updated upstream
-=======
+
 
 <div class="modal fade" id="buycourseModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-md" role="document">
@@ -89,13 +97,14 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Xác nhận</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+
                 </div>
             </form>
         </div>
     </div>
 </div>
 
->>>>>>> Stashed changes
+
 <!-- ##### Popular Course Area End ##### -->
 
 {{> footer }}
