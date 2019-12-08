@@ -27,6 +27,7 @@ router.get("/valid-email", isAdmin, function(req, res, next) {
     return res.json(true);
   });
 });
+//#endregion
 
 router.get("/valid-phone", isAdmin, function(req, res, next) {
   accountModel.getAccountByPhone(req.query.phone).then(rows => {

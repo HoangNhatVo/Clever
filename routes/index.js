@@ -8,7 +8,11 @@ var rechargeModel = require('../proc/recharge.model')
 var passport = require('passport');
 var bCrypt = require('bcrypt');
 var indexModel = require('../proc/index.model');
+
+var accountModel=require('../proc/account.model')
+
 var profileModel = require('../proc/account.model')
+
 
 var auth = require('../MiddleWares/auth_student');
 
@@ -20,11 +24,15 @@ router.get('/', async function (req, res, next) {
   try {
     var listCourse = await indexModel.allCourse()
     var listSubject = await indexModel.allSubject()
+    var listInstructor = await accountModel.getListTeacher();
+    console.log(listInstructor);
     res.render('index',
       {
         listCourse,
-        listSubject
+        listSubject,
+        listInstructor
       });
+
   } catch (error) {
     console.log(error)
   }
@@ -110,8 +118,17 @@ router.get('/single-course/:ID', async function (req, res) {
     console.log(error)
   }
 })
-router.get('/instructor', function (req, res, next) {
-  res.render('instructor')
+
+router.get('/instructor', async function (req, res, next) {
+  try {
+    var listInstructor = await accountModel.getListTeacher();
+    res.render('instructor',
+      {
+        listInstructor
+      });
+  } catch (error) {
+    console.log(error)
+  }
 })
 
 router.get('/profile',auth, async function(req,res,next){
