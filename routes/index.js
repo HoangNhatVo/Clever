@@ -250,6 +250,7 @@ router.post('/buycourse', async function (req, res) {
 })
 
 router.get('/yourcourse', async function(req,res){
+  if (!req.user) return res.redirect('/login')
   try {
     var stdId = req.user.account_id
     var listCourses = await indexModel.allCourseByStudentId(stdId)
