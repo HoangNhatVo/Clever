@@ -112,7 +112,8 @@ router.get('/single-course/:ID', async function (req, res) {
       {
         course: course[0],
         lessons,
-        resources
+        resources,
+        ID
       });
   } catch (error) {
     console.log(error)
