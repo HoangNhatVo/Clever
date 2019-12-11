@@ -249,11 +249,7 @@ router.post('/buycourse', async function (req, res) {
   }
 })
 
-router.get('/yourcourse', passport.authenticate('local-signup', {
-  failureRedirect: '/register',
-  successRedirect: '/login',
-  failureFlash: true
-}), async function(req,res){
+router.get('/yourcourse', async function(req,res){
   try {
     var stdId = req.user.account_id
     var listCourses = await indexModel.allCourseByStudentId(stdId)
