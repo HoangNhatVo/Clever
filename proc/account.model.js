@@ -20,5 +20,10 @@ module.exports = {
     },
     updatePasswordAccountByID:(ID, newPass)=>{
         return orm.selectAll(`call UpdatePasswordAccountByID(${ID},'${newPass}')`);
+
+    },
+    getListTeacher:()=>{
+        return orm.selectAll(`call GetAccountByRole('teacher')`);
+
     }
 }
