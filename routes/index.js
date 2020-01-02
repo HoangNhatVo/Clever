@@ -9,7 +9,7 @@ var passport = require('passport');
 var bCrypt = require('bcrypt');
 var indexModel = require('../proc/index.model');
 
-var accountModel=require('../proc/account.model')
+var accountModel = require('../proc/account.model')
 
 var profileModel = require('../proc/account.model')
 
@@ -62,10 +62,9 @@ router.get('/courses', async function (req, res, next) {
 })
 
 
-router.get('/recharge', auth, async function(req,res,next){
-  if(req.user)
-  {
-  res.render('recharge')
+router.get('/recharge', auth, async function (req, res, next) {
+  if (req.user) {
+    res.render('recharge')
   }
   else {
     res.redirect('/login')
@@ -119,7 +118,8 @@ router.get('/single-course/:ID', async function (req, res) {
         isParticipated,
         course: course[0],
         lessons,
-        resources
+        resources,
+        ID
       });
   } catch (error) {
     console.log(error)
@@ -138,7 +138,7 @@ router.get('/instructor', async function (req, res, next) {
   }
 })
 
-router.get('/profile',auth, async function(req,res,next){
+router.get('/profile', auth, async function (req, res, next) {
   try {
     var ID = req.user.account_id;
     var user = await profileModel.getAccountDetails(ID);
@@ -208,41 +208,41 @@ router.post('/logout', function (req, res) {
 
 
 // Đổi mật khẩu
-router.get('/changepassword', async function(req,res,next){
-  if(req.isAuthenticated()){
-    res.render('./change-password',{message: req.flash('changePasswordMessage')})
+router.get('/changepassword', async function (req, res, next) {
+  if (req.isAuthenticated()) {
+    res.render('./change-password', { message: req.flash('changePasswordMessage') })
   }
-  else{
+  else {
     res.redirect('/login');
   }
 })
 
-router.post('/changepassword', function(req,res,next){
+router.post('/changepassword', function (req, res, next) {
   var ID = req.user.account_id;
   var newPass = bCrypt.hashSync(req.body.newPassword, bCrypt.genSaltSync(saltRounds));
-  profileModel.getAccountByID(ID).then(r=>{
-    if(!r.length){
+  profileModel.getAccountByID(ID).then(r => {
+    if (!r.length) {
       req.flash('changePasswordMessage', 'Không tìm thấy người dùng.');
       res.redirect('/changepassword');
     }
-    else{
-      if(!bCrypt.compareSync(req.body.curPassword, r[0].account_password)){
+    else {
+      if (!bCrypt.compareSync(req.body.curPassword, r[0].account_password)) {
         req.flash('changePasswordMessage', 'Nhập mật khẩu hiện tại không đúng.');
         res.redirect('/changepassword');
       }
-      else{
-        profileModel.updatePasswordAccountByID(ID, newPass).then(r1=>{
+      else {
+        profileModel.updatePasswordAccountByID(ID, newPass).then(r1 => {
           req.logout();
           req.session.cookie.expires = false;
           res.redirect('/');
-        }).catch(err=>{
+        }).catch(err => {
           console.log(err);
           req.flash('changePasswordMessage', 'Đã xảy ra lỗi.');
           res.redirect('/changepassword');
         })
       }
     }
-  }).catch(err=>{
+  }).catch(err => {
     console.log(err);
     req.flash('changePasswordMessage', 'Đã xảy ra lỗi.');
     res.redirect('/changepassword');
@@ -262,7 +262,7 @@ router.post('/buycourse', async function (req, res) {
       if (user[0].balance < course[0].course_price)
         res.render('notification')
       else {
-        console.log(IDuser,parseFloat(id))
+        console.log(IDuser, parseFloat(id))
         const buy = await courseModel.buyCourse(IDuser, parseFloat(id))
         res.redirect('/yourcourse')
       }
@@ -273,20 +273,21 @@ router.post('/buycourse', async function (req, res) {
   }
 })
 
-router.get('/yourcourse', passport.authenticate('local-signup', {
-  failureRedirect: '/register',
-  successRedirect: '/login',
-  failureFlash: true
-}), async function(req,res){
-  try {
-    var stdId = req.user.account_id
-    var listCourses = await indexModel.allCourseByStudentId(stdId)
-    res.render('yourcourse',
-      {
-        listCoursesByStudentId: listCourses
-      } );
-  } catch (error) {
-    console.log(error)
+router.get('/yourcourse', async function (req, res) {
+  if (!req.user) {
+    res.redirect('/login')
+  }
+  else {
+    try {
+      var stdId = req.user.account_id
+      var listCourses = await indexModel.allCourseByStudentId(stdId)
+      res.render('yourcourse',
+        {
+          listCoursesByStudentId: listCourses
+        });
+    } catch (error) {
+      console.log(error)
+    }
   }
 })
 
