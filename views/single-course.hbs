@@ -18,7 +18,7 @@
       <li class="breadcrumb-item"><a href="#">Luyện thi đại học</a></li>
       <li class="breadcrumb-item active" aria-current="page">{{course.course_name}}</li>
 
- 
+
     </ol>
   </nav>
 </div>
@@ -43,10 +43,14 @@
       <span><i class="fa fa-circle" aria-hidden="true"></i></span>
       <a href="#">Luyện thi đại học</a>
     </div>
+
+    {{#if isParticipated}}
+    {{else}}
     <div class="price">
       <h3>Giá tiền: {{course.course_price}}đ</h3>
-
     </div>
+    {{/if}}
+
   </div>
 </div>
 <!-- ##### Single Course Intro End ##### -->
@@ -161,7 +165,8 @@
                       <!-- Single Accordian Area -->
                       <div class="panel single-accordion">
                         <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne"
-                            data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Cho em hỏi em có thể mua riêng từng khóa được không?
+                            data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Cho em hỏi em có thể mua
+                            riêng từng khóa được không?
                             <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
                             <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
                           </a></h6>
@@ -175,7 +180,8 @@
                       <div class="panel single-accordion">
                         <h6>
                           <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo"
-                            data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">Được học miễn phí trong bao lâu ?
+                            data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">Được học miễn phí trong
+                            bao lâu ?
                             <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
                             <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
                           </a>
@@ -188,10 +194,10 @@
                       </div>
 
                       <!-- Single Accordian Area -->
-                      
+
 
                       <!-- Single Accordian Area -->
-                     
+
                     </div>
 
                   </div>
@@ -215,6 +221,7 @@
                   </div>
 
                   <!-- Curriculum Level -->
+                  {{#if isParticipated}}
                   {{#each lessons}}
                   <div class="curriculum-level mb-30">
                     <h4 class="d-flex justify-content-between"><span>Week {{lesson_week}}</span></h4>
@@ -242,15 +249,15 @@
                           </li>
                           {{/isEqual}}
                           {{!-- <li>
-                            <span><i class="fa fa-video-camera" aria-hidden="true"></i>{{resource_type}}<span>{{resource_name}}</span></span>
-                            <span><i class="fa fa-clock-o" aria-hidden="true"></i> 15 minutes</span>
-                            <span><i class="fa fa-clock-o" aria-hidden="true"></i> 15 minutes</span>
-                          </li>
-                          {{/isEqual}}
-                          {{!-- <li>
-                            <span><i class="fa fa-video-camera" aria-hidden="true"></i>{{resource_type}}<span>{{resource_name}}</span></span>
-                            <span><i class="fa fa-clock-o" aria-hidden="true"></i> 15 minutes</span>
-                          </li> --}}
+                              <span><i class="fa fa-video-camera" aria-hidden="true"></i>{{resource_type}}<span>{{resource_name}}</span></span>
+                              <span><i class="fa fa-clock-o" aria-hidden="true"></i> 15 minutes</span>
+                              <span><i class="fa fa-clock-o" aria-hidden="true"></i> 15 minutes</span>
+                            </li>
+                            {{/isEqual}}
+                            {{!-- <li>
+                              <span><i class="fa fa-video-camera" aria-hidden="true"></i>{{resource_type}}<span>{{resource_name}}</span></span>
+                              <span><i class="fa fa-clock-o" aria-hidden="true"></i> 15 minutes</span>
+                            </li> --}}
                           {{/each}}
 
                         </ul>
@@ -262,8 +269,9 @@
                       </li>
                     </ul>
                   </div>
-
                   {{/each}}
+                  {{/if}}
+
                 </div>
               </div>
 

@@ -104,11 +104,18 @@ router.get('/course/:ID', async function (req, res, next) {
 router.get('/single-course/:ID', async function (req, res) {
   try {
     var ID = req.params.ID;
+    const isParticipated = false;
+    if (req.user&&req.user.account_id){
+      await courseModel.loadCourseByUser(ID, req.user.account_id).then(rows => {
+        if(rows.length) isParticipated =true;
+      });
+    }
     var course = await courseModel.detailCourse(ID);
     const lessons = await lessonModel.findAll('lessons', 'lesson_course', ID, 'lesson_week');
     const resources = await lessonModel.getAll('resources');
     res.render('single-course',
       {
+        isParticipated,
         course: course[0],
         lessons,
         resources,
